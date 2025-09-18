@@ -3,19 +3,40 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { database } from './prisma.js';
 import bcrypt from 'bcryptjs';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 export const auth = betterAuth({
   appName: 'Retirada de Chaves',
-  trustedOrigins: [process.env.BETTER_AUTH_URL!, 'http://localhost'],
+  trustedOrigins: [process.env.BETTER_AUTH_URL!, process.env.CLIENT_URL!],
+  basePath: 'api/v1/auth',
   secret: process.env.BETTER_AUTH_SECRET!,
-  baseURL: process.env.BETTER_AUTH_BASE_URL!,
   database: prismaAdapter(database, {
     provider: 'postgresql',
   }),
+  advanced: {
+    cookies: {
+      session_token: {
+        name: 'session_token',
+        attributes: {
+          httpOnly: true,
+          secure: isProd ? true : false,
+        },
+      },
+    },
+  },
   session: {
     expiresIn: 60 * 60 * 60 * 8,
   },
   user: {
     modelName: 'operadores',
+    additionalFields: {
+      role: {
+        type: 'string',
+        required: false,
+        defaultValue: 'user',
+        input: false, // don't allow user to set role
+      },
+    },
   },
   emailAndPassword: {
     enabled: true,

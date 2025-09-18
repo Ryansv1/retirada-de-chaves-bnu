@@ -17,6 +17,7 @@ import Emprestimos from './routes/emprestimos.js';
 import Chaves from './routes/chaves.js';
 import Authentication from './routes/auth.js';
 import { Usuarios } from './routes/usuarios.js';
+import { auth } from './lib/auth.js';
 
 declare module 'fastify' {
   interface FastifyInstance {

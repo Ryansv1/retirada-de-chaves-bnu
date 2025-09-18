@@ -1,18 +1,21 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { database } from '../lib/prisma.js';
+import { ZodTypeProvider } from 'fastify-type-provider-zod';
+import z from 'zod';
+import AuthPreHandler from '../preHandlers/auth.prehandler.js';
 
 export default async function Chaves(app: FastifyInstance) {
-  app.get(
-    '/chaves',
-    async (
-      req: FastifyRequest<{
-        Querystring: {
-          codigo?: string;
-          status?: 'disponivel' | 'indisponivel';
-        };
-      }>,
-      reply: FastifyReply,
-    ) => {
+  app.withTypeProvider<ZodTypeProvider>().route({
+    method: 'GET',
+    url: '/chaves',
+    schema: {
+      querystring: z.object({
+        codigo: z.string().optional(),
+        status: z.enum(['disponivel', 'indisponivel']).optional(),
+      }),
+    },
+    preHandler: AuthPreHandler,
+    handler: async (req, reply) => {
       try {
         const chaves = await database.chave.findMany({
           where: {
@@ -66,18 +69,17 @@ export default async function Chaves(app: FastifyInstance) {
         throw new Error('Erro ao buscar chaves.');
       }
     },
-  );
+  });
 
-  app.get(
-    '/chaves/:id',
-    async (
-      req: FastifyRequest<{
-        Params: {
-          id: string;
-        };
-      }>,
-      reply: FastifyReply,
-    ) => {
+  app.withTypeProvider<ZodTypeProvider>().route({
+    method: 'GET',
+    url: '/chaves/:id',
+    schema: {
+      params: z.object({
+        id: z.uuidv7(),
+      }),
+    },
+    handler: async (req, reply) => {
       try {
         const chave = await database.chave.findFirst({
           where: {
@@ -106,5 +108,5 @@ export default async function Chaves(app: FastifyInstance) {
         throw new Error('Erro ao buscar chaves.');
       }
     },
-  );
+  });
 }
