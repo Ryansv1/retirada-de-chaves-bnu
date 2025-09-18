@@ -5,11 +5,13 @@ import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import { HTTPError } from '../utils/http-error.js';
 import { v7 as uuidv7 } from 'uuid';
 import { DateTime } from 'luxon';
+import AuthenticatedOnly from '../preHandlers/auth.prehandler.js';
 
 export default async function Emprestimos(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().route({
     method: 'GET',
     url: '/emprestimos',
+    preHandler: [AuthenticatedOnly],
     schema: {
       querystring: z.object({
         codigoAmbiente: z.string().optional(),
@@ -84,6 +86,7 @@ export default async function Emprestimos(app: FastifyInstance) {
         emprestimoId: z.uuidv7(),
       }),
     },
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       const { emprestimoId } = req.params;
       try {
@@ -117,6 +120,7 @@ export default async function Emprestimos(app: FastifyInstance) {
         matricula: z.string().min(8).max(11),
       }),
     },
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       const { matricula } = req.body;
       const chaveId = req.params.chaveId;
@@ -195,6 +199,7 @@ export default async function Emprestimos(app: FastifyInstance) {
         matricula: z.string().min(8).max(11),
       }),
     },
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       const { chaveId } = req.params;
       const { matricula } = req.body;
@@ -284,6 +289,7 @@ export default async function Emprestimos(app: FastifyInstance) {
           },
         ),
     },
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       const { chaveId, dataRetirada, justificativa, status, dataRetorno } =
         req.body;

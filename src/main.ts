@@ -5,19 +5,20 @@ import scalar from './plugins/scalar.js';
 import swagger from './plugins/swagger.js';
 import rateLimit from './plugins/rate-limit.js';
 import multipart from './plugins/multipart.js';
-import healthcheck from './routes/healthcheck.js';
+import cors from './plugins/cors.js';
+
 import { HTTPErrorHandler } from './utils/http.js';
 import type { ZodTypeProvider } from 'fastify-type-provider-zod';
 import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod';
-import cors from './plugins/cors.js';
+
+import healthcheck from './routes/healthcheck.js';
 import Emprestimos from './routes/emprestimos.js';
 import Chaves from './routes/chaves.js';
 import Authentication from './routes/auth.js';
-import { Usuarios } from './routes/usuarios.js';
-import { auth } from './lib/auth.js';
+import Usuarios from './routes/usuarios.js';
 
 declare module 'fastify' {
   interface FastifyInstance {

@@ -4,8 +4,10 @@ import z from 'zod';
 import { database } from '../lib/prisma.js';
 import { HTTPError } from '../utils/http-error.js';
 import { v7 as uuidv7 } from 'uuid';
+import AuthenticatedOnly from '../preHandlers/auth.prehandler.js';
+import AdminOnly from '../preHandlers/role.preHandler.js';
 
-export async function Usuarios(app: FastifyInstance) {
+export default async function Usuarios(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().route({
     method: 'POST',
     url: '/usuarios/associar-chave/:usuarioId',
@@ -22,6 +24,7 @@ export async function Usuarios(app: FastifyInstance) {
           .min(1, 'Pelo menos uma chave deve ser informada.'),
       }),
     },
+    preHandler: [AuthenticatedOnly, AdminOnly],
     handler: async (req, reply) => {
       const { chavesId } = req.body;
       const { usuarioId } = req.params;
@@ -114,6 +117,7 @@ export async function Usuarios(app: FastifyInstance) {
           .min(1, 'Pelo menos uma chave deve ser informada.'),
       }),
     },
+    preHandler: [AuthenticatedOnly, AdminOnly],
     handler: async (req, reply) => {
       const { usuarioId } = req.params;
       const { chavesId } = req.body;
@@ -180,6 +184,7 @@ export async function Usuarios(app: FastifyInstance) {
         matricula: z.uuidv7().optional(),
       }),
     },
+    preHandler: [AuthenticatedOnly, AdminOnly],
     handler: async (req, reply) => {
       const filters = req.query;
       try {

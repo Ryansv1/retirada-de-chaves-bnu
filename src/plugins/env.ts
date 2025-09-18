@@ -10,6 +10,9 @@ const envSchema = z.object({
     .default('development'),
   DATABASE_URL: z.url(),
   API_SECRET: z.string().min(16),
+  BETTER_AUTH_SECRET: z.string().min(16),
+  BETTER_AUTH_URL: z.url(),
+  CLIENT_URL: z.url(),
 });
 
 export default fp(async (app) => {

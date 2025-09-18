@@ -2,6 +2,7 @@ import { betterAuth } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { database } from './prisma.js';
 import bcrypt from 'bcryptjs';
+import { v7 as uuidv7 } from 'uuid';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -14,6 +15,12 @@ export const auth = betterAuth({
     provider: 'postgresql',
   }),
   advanced: {
+    database: {
+      generateId: () => {
+        const id = uuidv7();
+        return id;
+      },
+    },
     cookies: {
       session_token: {
         name: 'session_token',
@@ -31,9 +38,10 @@ export const auth = betterAuth({
     modelName: 'operadores',
     additionalFields: {
       role: {
+        fieldName: 'role',
         type: 'string',
-        required: false,
-        defaultValue: 'user',
+        required: true,
+        defaultValue: 'ADMIN',
         input: false, // don't allow user to set role
       },
     },
@@ -49,3 +57,5 @@ export const auth = betterAuth({
     },
   },
 });
+
+export type Session = typeof auth.$Infer.Session;

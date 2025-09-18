@@ -1,8 +1,8 @@
 import 'fastify';
-import { User } from 'better-auth';
+import { Session } from '../src/lib/auth.ts';
 
 declare module 'fastify' {
   interface FastifyRequest {
-    user?: User;
+    session?: Session;
   }
 }

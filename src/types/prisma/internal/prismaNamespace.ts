@@ -1204,7 +1204,8 @@ export const OperadoresScalarFieldEnum = {
   emailVerified: 'emailVerified',
   image: 'image',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  role: 'role'
 } as const
 
 export type OperadoresScalarFieldEnum = (typeof OperadoresScalarFieldEnum)[keyof typeof OperadoresScalarFieldEnum]

@@ -1,19 +1,27 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyRequest } from 'fastify';
 import { auth } from '../lib/auth.js';
 import { HTTPError } from '../utils/http-error.js';
+import { DateTime } from 'luxon';
 
-export default async function AuthPreHandler(request: FastifyRequest) {
+export default async function AuthenticatedOnly(request: FastifyRequest) {
   const headers = new Headers();
   Object.entries(request.headers).forEach(([key, value]) => {
     if (value) headers.append(key, value.toString());
   });
-  const isAuthenticated = await auth.api.getSession({
+  const session = await auth.api.getSession({
     headers,
   });
 
-  if (!isAuthenticated) {
+  if (!session) {
     throw new HTTPError(401, 'Não autenticado.');
   }
 
-  request.user = isAuthenticated.user;
+  const isExpired =
+    DateTime.fromJSDate(session.session.expiresAt).diffNow().toMillis() <= 0;
+
+  if (isExpired) {
+    throw new HTTPError(401, 'Sessão expirada.');
+  }
+
+  request.session = session;
 }

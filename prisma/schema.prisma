@@ -27,6 +27,8 @@ model Operadores {
 
   EmprestimosGerados Emprestimo[]
 
+  role String?
+
   @@unique([email])
   @@map("operadores")
 }

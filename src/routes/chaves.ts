@@ -1,8 +1,9 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyInstance } from 'fastify';
 import { database } from '../lib/prisma.js';
 import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import z from 'zod';
-import AuthPreHandler from '../preHandlers/auth.prehandler.js';
+
+import AuthenticatedOnly from '../preHandlers/auth.prehandler.js';
 
 export default async function Chaves(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().route({
@@ -14,7 +15,7 @@ export default async function Chaves(app: FastifyInstance) {
         status: z.enum(['disponivel', 'indisponivel']).optional(),
       }),
     },
-    preHandler: AuthPreHandler,
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       try {
         const chaves = await database.chave.findMany({
@@ -79,6 +80,7 @@ export default async function Chaves(app: FastifyInstance) {
         id: z.uuidv7(),
       }),
     },
+    preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
       try {
         const chave = await database.chave.findFirst({
