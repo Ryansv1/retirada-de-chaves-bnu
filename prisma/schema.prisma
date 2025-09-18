@@ -1,0 +1,196 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/types/prisma"
+  moduleFormat = "esm"
+  runtime      = "nodejs"
+  engineType   = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Operadores {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+
+  EmprestimosGerados Emprestimo[]
+
+  @@unique([email])
+  @@map("operadores")
+}
+
+model Session {
+  id        String     @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      Operadores @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String     @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  Operadores @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@map("account")
+}
+
+model Usuarios {
+  id        String @id
+  nome      String
+  matricula String @unique
+
+  EmprestimosSolicitados Emprestimo[]      @relation("Solicitados")
+  EmprestimosDevolvidos  Emprestimo[]      @relation("Devolvidos")
+  Chaves_Usuarios        Chaves_Usuarios[]
+
+  @@map("usuarios")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@map("verification")
+}
+
+model Emprestimo {
+  id                   String    @id
+  chaveId              String
+  usuarioSolicitanteId String
+  usuarioDevolucaoId   String?
+  operadorId           String?
+  dataRetirada         DateTime
+  dataRetorno          DateTime?
+  status               Status
+
+  tipo          TipoEmprestimo @default(NORMAL)
+  justificativa String? // Obrigatório somente quando for administrativo
+
+  Chave              Chave       @relation(fields: [chaveId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  UsuarioSolicitante Usuarios    @relation("Solicitados", fields: [usuarioSolicitanteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  UsuarioDevolucao   Usuarios?   @relation("Devolvidos", fields: [usuarioDevolucaoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Operador           Operadores? @relation(fields: [operadorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([chaveId])
+  @@index([usuarioDevolucaoId])
+  @@index([usuarioSolicitanteId])
+  @@index([operadorId])
+  @@map("emprestimos")
+}
+
+enum TipoEmprestimo {
+  ADMINISTRATIVO
+  NORMAL
+}
+
+enum Status {
+  PENDENTE
+  DEVOLVIDO
+}
+
+model Chave {
+  id         String    @id
+  ambienteId String?   @unique
+  armarioId  String?   @unique
+  tipo       TipoChave
+
+  Ambiente Ambiente? @relation(fields: [ambienteId], references: [id])
+  Armario  Armario?  @relation(fields: [armarioId], references: [id])
+
+  Emprestimo Emprestimo[]
+
+  Chaves_Usuarios Chaves_Usuarios[]
+
+  @@map("chaves")
+}
+
+enum TipoChave {
+  ARMARIO
+  AMBIENTE
+}
+
+model Chaves_Usuarios {
+  id        String @id
+  chaveId   String
+  usuarioId String
+
+  Autorizado Usuarios @relation(fields: [usuarioId], references: [id])
+  Chave      Chave    @relation(fields: [chaveId], references: [id])
+
+  @@map("chaves_usuarios")
+}
+
+model Ambiente {
+  id             String       @id
+  codigo         String
+  nome           String
+  capacidade     Int
+  localizacao    Localizacao
+  tipo           TipoAmbiente
+  Chave          Chave?
+  precisaReserva Boolean      @default(false)
+
+  @@unique([codigo, localizacao])
+  @@map("ambientes")
+}
+
+enum TipoAmbiente {
+  LABORATORIO
+  SALA_DE_AULA
+  SALA_ADMINISTRATIVA
+  AUDITORIO
+}
+
+enum Localizacao {
+  SNO
+  VELHA
+}
+
+model Armario {
+  id          String @id
+  codigo      String @unique
+  localizacao String // 1°/2°/3° andar
+  bloco       String
+
+  Chave Chave?
+
+  @@map("armarios")
+}
