@@ -47,6 +47,7 @@ export const auth = betterAuth({
     },
   },
   emailAndPassword: {
+    autoSignIn: false,
     enabled: true,
     password: {
       hash: async (input: string) => await bcrypt.hash(input, 10),

@@ -13,6 +13,8 @@ export default async function Chaves(app: FastifyInstance) {
       querystring: z.object({
         codigo: z.string().optional(),
         status: z.enum(['disponivel', 'indisponivel']).optional(),
+        tipo: z.enum(['ARMARIO', 'AMBIENTE']).optional(),
+        localizacao: z.enum(['SNO', 'VELHA']).optional(),
       }),
     },
     preHandler: [AuthenticatedOnly],
@@ -20,6 +22,23 @@ export default async function Chaves(app: FastifyInstance) {
       try {
         const chaves = await database.chave.findMany({
           where: {
+            ...(req.query.localizacao && {
+              OR: [
+                {
+                  Ambiente: {
+                    localizacao: req.query.localizacao,
+                  },
+                },
+                {
+                  Armario: {
+                    localizacao: req.query.localizacao,
+                  },
+                },
+              ],
+            }),
+            ...(req.query.tipo && {
+              tipo: req.query.tipo,
+            }),
             ...(req.query.codigo && {
               OR: [
                 {
@@ -40,8 +59,6 @@ export default async function Chaves(app: FastifyInstance) {
                 },
               ],
             }),
-            // Lógica corrigida para o status
-            // Se o status for 'disponivel', encontre chaves que não tenham NENHUM empréstimo PENDENTE.
             ...(req.query.status === 'disponivel' && {
               Emprestimo: {
                 none: {

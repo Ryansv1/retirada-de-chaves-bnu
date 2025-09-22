@@ -26,15 +26,17 @@ export type AggregateArmario = {
 export type ArmarioMinAggregateOutputType = {
   id: string | null
   codigo: string | null
-  localizacao: string | null
+  localizacao: $Enums.Localizacao | null
   bloco: string | null
+  andar: string | null
 }
 
 export type ArmarioMaxAggregateOutputType = {
   id: string | null
   codigo: string | null
-  localizacao: string | null
+  localizacao: $Enums.Localizacao | null
   bloco: string | null
+  andar: string | null
 }
 
 export type ArmarioCountAggregateOutputType = {
@@ -42,6 +44,7 @@ export type ArmarioCountAggregateOutputType = {
   codigo: number
   localizacao: number
   bloco: number
+  andar: number
   _all: number
 }
 
@@ -51,6 +54,7 @@ export type ArmarioMinAggregateInputType = {
   codigo?: true
   localizacao?: true
   bloco?: true
+  andar?: true
 }
 
 export type ArmarioMaxAggregateInputType = {
@@ -58,6 +62,7 @@ export type ArmarioMaxAggregateInputType = {
   codigo?: true
   localizacao?: true
   bloco?: true
+  andar?: true
 }
 
 export type ArmarioCountAggregateInputType = {
@@ -65,6 +70,7 @@ export type ArmarioCountAggregateInputType = {
   codigo?: true
   localizacao?: true
   bloco?: true
+  andar?: true
   _all?: true
 }
 
@@ -143,8 +149,9 @@ export type ArmarioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ArmarioGroupByOutputType = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
   _count: ArmarioCountAggregateOutputType | null
   _min: ArmarioMinAggregateOutputType | null
   _max: ArmarioMaxAggregateOutputType | null
@@ -171,8 +178,9 @@ export type ArmarioWhereInput = {
   NOT?: Prisma.ArmarioWhereInput | Prisma.ArmarioWhereInput[]
   id?: Prisma.StringFilter<"Armario"> | string
   codigo?: Prisma.StringFilter<"Armario"> | string
-  localizacao?: Prisma.StringFilter<"Armario"> | string
+  localizacao?: Prisma.EnumLocalizacaoFilter<"Armario"> | $Enums.Localizacao
   bloco?: Prisma.StringFilter<"Armario"> | string
+  andar?: Prisma.StringFilter<"Armario"> | string
   Chave?: Prisma.XOR<Prisma.ChaveNullableScalarRelationFilter, Prisma.ChaveWhereInput> | null
 }
 
@@ -181,6 +189,7 @@ export type ArmarioOrderByWithRelationInput = {
   codigo?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
   bloco?: Prisma.SortOrder
+  andar?: Prisma.SortOrder
   Chave?: Prisma.ChaveOrderByWithRelationInput
 }
 
@@ -190,8 +199,9 @@ export type ArmarioWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ArmarioWhereInput | Prisma.ArmarioWhereInput[]
   OR?: Prisma.ArmarioWhereInput[]
   NOT?: Prisma.ArmarioWhereInput | Prisma.ArmarioWhereInput[]
-  localizacao?: Prisma.StringFilter<"Armario"> | string
+  localizacao?: Prisma.EnumLocalizacaoFilter<"Armario"> | $Enums.Localizacao
   bloco?: Prisma.StringFilter<"Armario"> | string
+  andar?: Prisma.StringFilter<"Armario"> | string
   Chave?: Prisma.XOR<Prisma.ChaveNullableScalarRelationFilter, Prisma.ChaveWhereInput> | null
 }, "id" | "codigo">
 
@@ -200,6 +210,7 @@ export type ArmarioOrderByWithAggregationInput = {
   codigo?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
   bloco?: Prisma.SortOrder
+  andar?: Prisma.SortOrder
   _count?: Prisma.ArmarioCountOrderByAggregateInput
   _max?: Prisma.ArmarioMaxOrderByAggregateInput
   _min?: Prisma.ArmarioMinOrderByAggregateInput
@@ -211,61 +222,69 @@ export type ArmarioScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ArmarioScalarWhereWithAggregatesInput | Prisma.ArmarioScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Armario"> | string
   codigo?: Prisma.StringWithAggregatesFilter<"Armario"> | string
-  localizacao?: Prisma.StringWithAggregatesFilter<"Armario"> | string
+  localizacao?: Prisma.EnumLocalizacaoWithAggregatesFilter<"Armario"> | $Enums.Localizacao
   bloco?: Prisma.StringWithAggregatesFilter<"Armario"> | string
+  andar?: Prisma.StringWithAggregatesFilter<"Armario"> | string
 }
 
 export type ArmarioCreateInput = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
   Chave?: Prisma.ChaveCreateNestedOneWithoutArmarioInput
 }
 
 export type ArmarioUncheckedCreateInput = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
   Chave?: Prisma.ChaveUncheckedCreateNestedOneWithoutArmarioInput
 }
 
 export type ArmarioUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
   Chave?: Prisma.ChaveUpdateOneWithoutArmarioNestedInput
 }
 
 export type ArmarioUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
   Chave?: Prisma.ChaveUncheckedUpdateOneWithoutArmarioNestedInput
 }
 
 export type ArmarioCreateManyInput = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
 }
 
 export type ArmarioUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArmarioUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArmarioNullableScalarRelationFilter = {
@@ -278,6 +297,7 @@ export type ArmarioCountOrderByAggregateInput = {
   codigo?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
   bloco?: Prisma.SortOrder
+  andar?: Prisma.SortOrder
 }
 
 export type ArmarioMaxOrderByAggregateInput = {
@@ -285,6 +305,7 @@ export type ArmarioMaxOrderByAggregateInput = {
   codigo?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
   bloco?: Prisma.SortOrder
+  andar?: Prisma.SortOrder
 }
 
 export type ArmarioMinOrderByAggregateInput = {
@@ -292,6 +313,7 @@ export type ArmarioMinOrderByAggregateInput = {
   codigo?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
   bloco?: Prisma.SortOrder
+  andar?: Prisma.SortOrder
 }
 
 export type ArmarioCreateNestedOneWithoutChaveInput = {
@@ -313,15 +335,17 @@ export type ArmarioUpdateOneWithoutChaveNestedInput = {
 export type ArmarioCreateWithoutChaveInput = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
 }
 
 export type ArmarioUncheckedCreateWithoutChaveInput = {
   id: string
   codigo: string
-  localizacao: string
+  localizacao: $Enums.Localizacao
   bloco: string
+  andar: string
 }
 
 export type ArmarioCreateOrConnectWithoutChaveInput = {
@@ -343,15 +367,17 @@ export type ArmarioUpdateToOneWithWhereWithoutChaveInput = {
 export type ArmarioUpdateWithoutChaveInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArmarioUncheckedUpdateWithoutChaveInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   codigo?: Prisma.StringFieldUpdateOperationsInput | string
-  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.EnumLocalizacaoFieldUpdateOperationsInput | $Enums.Localizacao
   bloco?: Prisma.StringFieldUpdateOperationsInput | string
+  andar?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -361,6 +387,7 @@ export type ArmarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   codigo?: boolean
   localizacao?: boolean
   bloco?: boolean
+  andar?: boolean
   Chave?: boolean | Prisma.Armario$ChaveArgs<ExtArgs>
 }, ExtArgs["result"]["armario"]>
 
@@ -369,6 +396,7 @@ export type ArmarioSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   codigo?: boolean
   localizacao?: boolean
   bloco?: boolean
+  andar?: boolean
 }, ExtArgs["result"]["armario"]>
 
 export type ArmarioSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -376,6 +404,7 @@ export type ArmarioSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   codigo?: boolean
   localizacao?: boolean
   bloco?: boolean
+  andar?: boolean
 }, ExtArgs["result"]["armario"]>
 
 export type ArmarioSelectScalar = {
@@ -383,9 +412,10 @@ export type ArmarioSelectScalar = {
   codigo?: boolean
   localizacao?: boolean
   bloco?: boolean
+  andar?: boolean
 }
 
-export type ArmarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "codigo" | "localizacao" | "bloco", ExtArgs["result"]["armario"]>
+export type ArmarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "codigo" | "localizacao" | "bloco" | "andar", ExtArgs["result"]["armario"]>
 export type ArmarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Chave?: boolean | Prisma.Armario$ChaveArgs<ExtArgs>
 }
@@ -400,8 +430,9 @@ export type $ArmarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     codigo: string
-    localizacao: string
+    localizacao: $Enums.Localizacao
     bloco: string
+    andar: string
   }, ExtArgs["result"]["armario"]>
   composites: {}
 }
@@ -828,8 +859,9 @@ export interface Prisma__ArmarioClient<T, Null = never, ExtArgs extends runtime.
 export interface ArmarioFieldRefs {
   readonly id: Prisma.FieldRef<"Armario", 'String'>
   readonly codigo: Prisma.FieldRef<"Armario", 'String'>
-  readonly localizacao: Prisma.FieldRef<"Armario", 'String'>
+  readonly localizacao: Prisma.FieldRef<"Armario", 'Localizacao'>
   readonly bloco: Prisma.FieldRef<"Armario", 'String'>
+  readonly andar: Prisma.FieldRef<"Armario", 'String'>
 }
     
 

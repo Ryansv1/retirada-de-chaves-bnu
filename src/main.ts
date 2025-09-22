@@ -19,13 +19,14 @@ import Emprestimos from './routes/emprestimos.js';
 import Chaves from './routes/chaves.js';
 import Authentication from './routes/auth.js';
 import Usuarios from './routes/usuarios.js';
+import formBody from './plugins/form-body.js';
+import Operadores from './routes/operadores.js';
 
 declare module 'fastify' {
   interface FastifyInstance {
     config: Config;
   }
 }
-
 export async function AppFactory() {
   const app = Fastify({
     logger: {
@@ -36,8 +37,7 @@ export async function AppFactory() {
   });
 
   app.setValidatorCompiler(validatorCompiler);
-  app.setSerializerCompiler(serializerCompiler);
-  app.withTypeProvider<ZodTypeProvider>();
+  // app.setSerializerCompiler(serializerCompiler);
   app.setErrorHandler(async function (err, request, reply) {
     await HTTPErrorHandler(this, err, request, reply);
   });
@@ -48,13 +48,15 @@ export async function AppFactory() {
   app.register(swagger);
   app.register(scalar);
   app.register(multipart);
-  app.register(rateLimit);
+  app.register(formBody);
+  // app.register(rateLimit);
 
   app.register(Authentication, { prefix: '/api/v1' });
   app.register(Usuarios, { prefix: '/api/v1' });
   app.register(healthcheck, { prefix: '/api/v1' });
   app.register(Emprestimos, { prefix: '/api/v1' });
   app.register(Chaves, { prefix: '/api/v1' });
+  app.register(Operadores, { prefix: '/api/v1' });
 
   await app.ready();
 

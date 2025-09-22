@@ -445,7 +445,8 @@ async function main() {
         create: {
           id: uuidv7(),
           codigo: armario.codigo,
-          localizacao: `${armario.codigo.charAt(1)}° Andar`,
+          andar: `${armario.codigo.charAt(1)}° Andar`,
+          localizacao: 'SNO',
           bloco: `Bloco ${armario.codigo.charAt(0)}`,
           Chave: {
             create: {

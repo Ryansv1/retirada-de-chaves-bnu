@@ -1319,7 +1319,8 @@ export const ArmarioScalarFieldEnum = {
   id: 'id',
   codigo: 'codigo',
   localizacao: 'localizacao',
-  bloco: 'bloco'
+  bloco: 'bloco',
+  andar: 'andar'
 } as const
 
 export type ArmarioScalarFieldEnum = (typeof ArmarioScalarFieldEnum)[keyof typeof ArmarioScalarFieldEnum]

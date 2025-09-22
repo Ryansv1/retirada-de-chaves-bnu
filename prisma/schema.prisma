@@ -187,10 +187,11 @@ enum Localizacao {
 }
 
 model Armario {
-  id          String @id
-  codigo      String @unique
-  localizacao String // 1°/2°/3° andar
+  id          String      @id
+  codigo      String      @unique
+  localizacao Localizacao
   bloco       String
+  andar       String
 
   Chave Chave?
 

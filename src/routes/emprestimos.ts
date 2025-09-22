@@ -14,7 +14,7 @@ export default async function Emprestimos(app: FastifyInstance) {
     preHandler: [AuthenticatedOnly],
     schema: {
       querystring: z.object({
-        codigoAmbiente: z.string().optional(),
+        codigo: z.string().optional(),
         status: z.enum(['DEVOLVIDO', 'PENDENTE']).optional(),
         tipo: z.enum(['ADMINISTRATIVO', 'NORMAL']).optional(),
         dataRetirada: z.iso.date().optional(),
@@ -28,14 +28,26 @@ export default async function Emprestimos(app: FastifyInstance) {
       try {
         const emprestimos = await database.emprestimo.findMany({
           where: {
-            ...(filters.codigoAmbiente && {
+            ...(filters.codigo && {
               Chave: {
-                Ambiente: {
-                  codigo: {
-                    contains: filters.codigoAmbiente,
-                    mode: 'insensitive',
+                OR: [
+                  {
+                    Ambiente: {
+                      codigo: {
+                        contains: filters.codigo,
+                        mode: 'insensitive',
+                      },
+                    },
                   },
-                },
+                  {
+                    Armario: {
+                      codigo: {
+                        contains: filters.codigo,
+                        mode: 'insensitive',
+                      },
+                    },
+                  },
+                ],
               },
             }),
             ...(filters.nomeSolicitante && {
@@ -58,15 +70,18 @@ export default async function Emprestimos(app: FastifyInstance) {
                   },
                 },
               }),
-              ...(filters.dataRetirada &&
-                filters.dataRetorno && {
-                  dataRetirada: {
-                    gte: filters.dataRetirada,
-                  },
-                  dataRetorno: {
-                    lte: filters.dataRetorno,
-                  },
-                }),
+
+              ...(filters.dataRetirada && {
+                dataRetirada: {
+                  gte: DateTime.fromISO(filters.dataRetirada).toJSDate(),
+                },
+              }),
+
+              ...(filters.dataRetorno && {
+                dataRetorno: {
+                  lte: DateTime.fromISO(filters.dataRetorno).toJSDate(),
+                },
+              }),
             }),
           },
         });

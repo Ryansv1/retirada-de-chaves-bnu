@@ -8,6 +8,7 @@ export default async function AuthenticatedOnly(request: FastifyRequest) {
   Object.entries(request.headers).forEach(([key, value]) => {
     if (value) headers.append(key, value.toString());
   });
+
   const session = await auth.api.getSession({
     headers,
   });
