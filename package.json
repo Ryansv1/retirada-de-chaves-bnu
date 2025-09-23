@@ -19,8 +19,7 @@
     "lint": "eslint . --ext .ts",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "format": "prettier --write .",
-    "prepare": "husky"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
