@@ -29,6 +29,7 @@ export const auth = betterAuth({
       session_token: {
         name: 'session_token',
         attributes: {
+          domain: isProd ? process.env.COOKIE_DOMAIN! : 'localhost',
           httpOnly: true,
           secure: isProd ? true : false,
         },
