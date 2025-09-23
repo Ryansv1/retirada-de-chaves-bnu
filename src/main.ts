@@ -56,7 +56,7 @@ export async function AppFactory() {
   await app.ready();
 
   try {
-    await app.listen({ port: Number(app.config.PORT) });
+    await app.listen({ port: Number(app.config.PORT), host: '0.0.0.0' });
     app.log.info(app.printPlugins());
     app.log.info(app.printRoutes());
   } catch (err) {
