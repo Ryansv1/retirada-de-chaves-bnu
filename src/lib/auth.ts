@@ -32,6 +32,8 @@ export const auth = betterAuth({
           domain: isProd ? process.env.COOKIE_DOMAIN! : 'localhost',
           httpOnly: true,
           secure: isProd ? true : false,
+          sameSite: 'none',
+          path: '/',
         },
       },
     },
