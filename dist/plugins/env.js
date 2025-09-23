@@ -1,17 +1,19 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fastify_plugin_1 = __importDefault(require("fastify-plugin"));
-const zod_1 = __importDefault(require("zod"));
-const envSchema = zod_1.default.object({
-    NODE_ENV: zod_1.default
+import fp from 'fastify-plugin';
+import z from 'zod';
+import 'dotenv/config';
+const envSchema = z.object({
+    PORT: z.coerce.number().default(3000),
+    HOST: z.string().default('0.0.0.0'),
+    NODE_ENV: z
         .enum(['development', 'production', 'test'])
         .default('development'),
-    PORT: zod_1.default.string().default('3000'),
+    DATABASE_URL: z.url(),
+    API_SECRET: z.string().min(16),
+    BETTER_AUTH_SECRET: z.string().min(16),
+    BETTER_AUTH_URL: z.url(),
+    CLIENT_URL: z.url(),
 });
-exports.default = (0, fastify_plugin_1.default)(async (app) => {
+export default fp(async (app) => {
     const parsed = envSchema.parse(process.env);
     app.decorate('config', parsed);
 });

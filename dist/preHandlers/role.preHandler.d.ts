@@ -1,0 +1,3 @@
+import { FastifyRequest } from 'fastify';
+export default function AdminOnly(request: FastifyRequest): Promise<FastifyRequest<import("fastify").RouteGenericInterface, import("fastify").RawServerDefault, import("http").IncomingMessage, import("fastify").FastifySchema, import("fastify").FastifyTypeProviderDefault, unknown, import("fastify").FastifyBaseLogger, import("fastify/types/type-provider.js").ResolveFastifyRequestType<import("fastify").FastifyTypeProviderDefault, import("fastify").FastifySchema, import("fastify").RouteGenericInterface>>>;
+//# sourceMappingURL=role.preHandler.d.ts.map

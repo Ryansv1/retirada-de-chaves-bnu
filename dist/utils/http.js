@@ -1,0 +1,60 @@
+import { hasZodFastifySchemaValidationErrors } from 'fastify-type-provider-zod';
+import { DateTime } from 'luxon';
+import { HTTPError } from './http-error.js';
+export function HTTPErrorHandler(app, err, request, reply) {
+    const requestId = request.id;
+    const timestamp = DateTime.now().toISO();
+    const path = request.url;
+    const method = request.method;
+    let statusCode = 500;
+    let identifier = 'INTERNAL_SERVER_ERROR';
+    let description = 'Erro interno no servidor';
+    let details = {};
+    if (hasZodFastifySchemaValidationErrors(err)) {
+        statusCode = 400;
+        identifier = 'VALIDATION_ERROR';
+        description = 'Validation Failed';
+        details = {
+            errors: {
+                issues: err.validation,
+                path: err.validationContext,
+            },
+        };
+    }
+    else if (err instanceof HTTPError) {
+        identifier = err.identifier;
+        statusCode = err.code;
+        description = err.message;
+        details = {
+            name: err.name,
+            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+        };
+    }
+    else if (err instanceof Error) {
+        identifier = 'UNHANDLED_EXCEPTION';
+        description = err.message;
+        details = {
+            name: err.name,
+            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+        };
+    }
+    app.log.error({
+        requestId,
+        identifier,
+        description,
+        statusCode,
+        path,
+        method,
+        details,
+    });
+    return reply.status(statusCode).send({
+        statusCode,
+        identifier,
+        description,
+        timestamp,
+        path,
+        method,
+        details,
+    });
+}
+//# sourceMappingURL=http.js.map

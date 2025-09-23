@@ -1,0 +1,1901 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Emprestimo
+ *
+ */
+export type EmprestimoModel = runtime.Types.Result.DefaultSelection<Prisma.$EmprestimoPayload>;
+export type AggregateEmprestimo = {
+    _count: EmprestimoCountAggregateOutputType | null;
+    _min: EmprestimoMinAggregateOutputType | null;
+    _max: EmprestimoMaxAggregateOutputType | null;
+};
+export type EmprestimoMinAggregateOutputType = {
+    id: string | null;
+    chaveId: string | null;
+    usuarioSolicitanteId: string | null;
+    usuarioDevolucaoId: string | null;
+    operadorId: string | null;
+    dataRetirada: Date | null;
+    dataRetorno: Date | null;
+    status: $Enums.Status | null;
+    tipo: $Enums.TipoEmprestimo | null;
+    justificativa: string | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type EmprestimoMaxAggregateOutputType = {
+    id: string | null;
+    chaveId: string | null;
+    usuarioSolicitanteId: string | null;
+    usuarioDevolucaoId: string | null;
+    operadorId: string | null;
+    dataRetirada: Date | null;
+    dataRetorno: Date | null;
+    status: $Enums.Status | null;
+    tipo: $Enums.TipoEmprestimo | null;
+    justificativa: string | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type EmprestimoCountAggregateOutputType = {
+    id: number;
+    chaveId: number;
+    usuarioSolicitanteId: number;
+    usuarioDevolucaoId: number;
+    operadorId: number;
+    dataRetirada: number;
+    dataRetorno: number;
+    status: number;
+    tipo: number;
+    justificativa: number;
+    createdAt: number;
+    updatedAt: number;
+    _all: number;
+};
+export type EmprestimoMinAggregateInputType = {
+    id?: true;
+    chaveId?: true;
+    usuarioSolicitanteId?: true;
+    usuarioDevolucaoId?: true;
+    operadorId?: true;
+    dataRetirada?: true;
+    dataRetorno?: true;
+    status?: true;
+    tipo?: true;
+    justificativa?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type EmprestimoMaxAggregateInputType = {
+    id?: true;
+    chaveId?: true;
+    usuarioSolicitanteId?: true;
+    usuarioDevolucaoId?: true;
+    operadorId?: true;
+    dataRetirada?: true;
+    dataRetorno?: true;
+    status?: true;
+    tipo?: true;
+    justificativa?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type EmprestimoCountAggregateInputType = {
+    id?: true;
+    chaveId?: true;
+    usuarioSolicitanteId?: true;
+    usuarioDevolucaoId?: true;
+    operadorId?: true;
+    dataRetirada?: true;
+    dataRetorno?: true;
+    status?: true;
+    tipo?: true;
+    justificativa?: true;
+    createdAt?: true;
+    updatedAt?: true;
+    _all?: true;
+};
+export type EmprestimoAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Emprestimo to aggregate.
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Emprestimos to fetch.
+     */
+    orderBy?: Prisma.EmprestimoOrderByWithRelationInput | Prisma.EmprestimoOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.EmprestimoWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Emprestimos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Emprestimos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Emprestimos
+    **/
+    _count?: true | EmprestimoCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmprestimoMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmprestimoMaxAggregateInputType;
+};
+export type GetEmprestimoAggregateType<T extends EmprestimoAggregateArgs> = {
+    [P in keyof T & keyof AggregateEmprestimo]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateEmprestimo[P]> : Prisma.GetScalarType<T[P], AggregateEmprestimo[P]>;
+};
+export type EmprestimoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.EmprestimoWhereInput;
+    orderBy?: Prisma.EmprestimoOrderByWithAggregationInput | Prisma.EmprestimoOrderByWithAggregationInput[];
+    by: Prisma.EmprestimoScalarFieldEnum[] | Prisma.EmprestimoScalarFieldEnum;
+    having?: Prisma.EmprestimoScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: EmprestimoCountAggregateInputType | true;
+    _min?: EmprestimoMinAggregateInputType;
+    _max?: EmprestimoMaxAggregateInputType;
+};
+export type EmprestimoGroupByOutputType = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId: string | null;
+    operadorId: string | null;
+    dataRetirada: Date;
+    dataRetorno: Date | null;
+    status: $Enums.Status;
+    tipo: $Enums.TipoEmprestimo;
+    justificativa: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+    _count: EmprestimoCountAggregateOutputType | null;
+    _min: EmprestimoMinAggregateOutputType | null;
+    _max: EmprestimoMaxAggregateOutputType | null;
+};
+type GetEmprestimoGroupByPayload<T extends EmprestimoGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<EmprestimoGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof EmprestimoGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], EmprestimoGroupByOutputType[P]> : Prisma.GetScalarType<T[P], EmprestimoGroupByOutputType[P]>;
+}>>;
+export type EmprestimoWhereInput = {
+    AND?: Prisma.EmprestimoWhereInput | Prisma.EmprestimoWhereInput[];
+    OR?: Prisma.EmprestimoWhereInput[];
+    NOT?: Prisma.EmprestimoWhereInput | Prisma.EmprestimoWhereInput[];
+    id?: Prisma.StringFilter<"Emprestimo"> | string;
+    chaveId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null;
+    status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFilter<"Emprestimo"> | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    createdAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    Chave?: Prisma.XOR<Prisma.ChaveScalarRelationFilter, Prisma.ChaveWhereInput>;
+    UsuarioSolicitante?: Prisma.XOR<Prisma.UsuariosScalarRelationFilter, Prisma.UsuariosWhereInput>;
+    UsuarioDevolucao?: Prisma.XOR<Prisma.UsuariosNullableScalarRelationFilter, Prisma.UsuariosWhereInput> | null;
+    Operador?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null;
+};
+export type EmprestimoOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    chaveId?: Prisma.SortOrder;
+    usuarioSolicitanteId?: Prisma.SortOrder;
+    usuarioDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    operadorId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    dataRetirada?: Prisma.SortOrder;
+    dataRetorno?: Prisma.SortOrderInput | Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    justificativa?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    Chave?: Prisma.ChaveOrderByWithRelationInput;
+    UsuarioSolicitante?: Prisma.UsuariosOrderByWithRelationInput;
+    UsuarioDevolucao?: Prisma.UsuariosOrderByWithRelationInput;
+    Operador?: Prisma.OperadoresOrderByWithRelationInput;
+};
+export type EmprestimoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    AND?: Prisma.EmprestimoWhereInput | Prisma.EmprestimoWhereInput[];
+    OR?: Prisma.EmprestimoWhereInput[];
+    NOT?: Prisma.EmprestimoWhereInput | Prisma.EmprestimoWhereInput[];
+    chaveId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null;
+    status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFilter<"Emprestimo"> | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    createdAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    Chave?: Prisma.XOR<Prisma.ChaveScalarRelationFilter, Prisma.ChaveWhereInput>;
+    UsuarioSolicitante?: Prisma.XOR<Prisma.UsuariosScalarRelationFilter, Prisma.UsuariosWhereInput>;
+    UsuarioDevolucao?: Prisma.XOR<Prisma.UsuariosNullableScalarRelationFilter, Prisma.UsuariosWhereInput> | null;
+    Operador?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null;
+}, "id">;
+export type EmprestimoOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    chaveId?: Prisma.SortOrder;
+    usuarioSolicitanteId?: Prisma.SortOrder;
+    usuarioDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    operadorId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    dataRetirada?: Prisma.SortOrder;
+    dataRetorno?: Prisma.SortOrderInput | Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    justificativa?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    _count?: Prisma.EmprestimoCountOrderByAggregateInput;
+    _max?: Prisma.EmprestimoMaxOrderByAggregateInput;
+    _min?: Prisma.EmprestimoMinOrderByAggregateInput;
+};
+export type EmprestimoScalarWhereWithAggregatesInput = {
+    AND?: Prisma.EmprestimoScalarWhereWithAggregatesInput | Prisma.EmprestimoScalarWhereWithAggregatesInput[];
+    OR?: Prisma.EmprestimoScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.EmprestimoScalarWhereWithAggregatesInput | Prisma.EmprestimoScalarWhereWithAggregatesInput[];
+    id?: Prisma.StringWithAggregatesFilter<"Emprestimo"> | string;
+    chaveId?: Prisma.StringWithAggregatesFilter<"Emprestimo"> | string;
+    usuarioSolicitanteId?: Prisma.StringWithAggregatesFilter<"Emprestimo"> | string;
+    usuarioDevolucaoId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null;
+    operadorId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null;
+    dataRetirada?: Prisma.DateTimeWithAggregatesFilter<"Emprestimo"> | Date | string;
+    dataRetorno?: Prisma.DateTimeNullableWithAggregatesFilter<"Emprestimo"> | Date | string | null;
+    status?: Prisma.EnumStatusWithAggregatesFilter<"Emprestimo"> | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoWithAggregatesFilter<"Emprestimo"> | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null;
+    createdAt?: Prisma.DateTimeWithAggregatesFilter<"Emprestimo"> | Date | string;
+    updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Emprestimo"> | Date | string;
+};
+export type EmprestimoCreateInput = {
+    id: string;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput;
+    UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput;
+    UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput;
+    Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput;
+};
+export type EmprestimoUncheckedCreateInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput;
+    UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput;
+    UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput;
+    Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput;
+};
+export type EmprestimoUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoCreateManyInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoListRelationFilter = {
+    every?: Prisma.EmprestimoWhereInput;
+    some?: Prisma.EmprestimoWhereInput;
+    none?: Prisma.EmprestimoWhereInput;
+};
+export type EmprestimoOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type EmprestimoCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    chaveId?: Prisma.SortOrder;
+    usuarioSolicitanteId?: Prisma.SortOrder;
+    usuarioDevolucaoId?: Prisma.SortOrder;
+    operadorId?: Prisma.SortOrder;
+    dataRetirada?: Prisma.SortOrder;
+    dataRetorno?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    justificativa?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type EmprestimoMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    chaveId?: Prisma.SortOrder;
+    usuarioSolicitanteId?: Prisma.SortOrder;
+    usuarioDevolucaoId?: Prisma.SortOrder;
+    operadorId?: Prisma.SortOrder;
+    dataRetirada?: Prisma.SortOrder;
+    dataRetorno?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    justificativa?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type EmprestimoMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    chaveId?: Prisma.SortOrder;
+    usuarioSolicitanteId?: Prisma.SortOrder;
+    usuarioDevolucaoId?: Prisma.SortOrder;
+    operadorId?: Prisma.SortOrder;
+    dataRetirada?: Prisma.SortOrder;
+    dataRetorno?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    tipo?: Prisma.SortOrder;
+    justificativa?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type EmprestimoCreateNestedManyWithoutOperadorInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[];
+    createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUncheckedCreateNestedManyWithoutOperadorInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[];
+    createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUpdateManyWithoutOperadorNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput[];
+    createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoUncheckedUpdateManyWithoutOperadorNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput[];
+    createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoCreateNestedManyWithoutUsuarioSolicitanteInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput> | Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioSolicitanteInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoCreateNestedManyWithoutUsuarioDevolucaoInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput> | Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioDevolucaoInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUncheckedCreateNestedManyWithoutUsuarioSolicitanteInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput> | Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioSolicitanteInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUncheckedCreateNestedManyWithoutUsuarioDevolucaoInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput> | Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioDevolucaoInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUpdateManyWithoutUsuarioSolicitanteNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput> | Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioSolicitanteInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioSolicitanteInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioSolicitanteInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioSolicitanteInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoUpdateManyWithoutUsuarioDevolucaoNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput> | Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioDevolucaoInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioDevolucaoInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioDevolucaoInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioDevolucaoInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoUncheckedUpdateManyWithoutUsuarioSolicitanteNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput> | Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioSolicitanteInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioSolicitanteInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioSolicitanteInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioSolicitanteInput | Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioSolicitanteInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoUncheckedUpdateManyWithoutUsuarioDevolucaoNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput> | Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutUsuarioDevolucaoInput[];
+    createMany?: Prisma.EmprestimoCreateManyUsuarioDevolucaoInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutUsuarioDevolucaoInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioDevolucaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutUsuarioDevolucaoInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EnumStatusFieldUpdateOperationsInput = {
+    set?: $Enums.Status;
+};
+export type EnumTipoEmprestimoFieldUpdateOperationsInput = {
+    set?: $Enums.TipoEmprestimo;
+};
+export type EmprestimoCreateNestedManyWithoutChaveInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput> | Prisma.EmprestimoCreateWithoutChaveInput[] | Prisma.EmprestimoUncheckedCreateWithoutChaveInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutChaveInput | Prisma.EmprestimoCreateOrConnectWithoutChaveInput[];
+    createMany?: Prisma.EmprestimoCreateManyChaveInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUncheckedCreateNestedManyWithoutChaveInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput> | Prisma.EmprestimoCreateWithoutChaveInput[] | Prisma.EmprestimoUncheckedCreateWithoutChaveInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutChaveInput | Prisma.EmprestimoCreateOrConnectWithoutChaveInput[];
+    createMany?: Prisma.EmprestimoCreateManyChaveInputEnvelope;
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+};
+export type EmprestimoUpdateManyWithoutChaveNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput> | Prisma.EmprestimoCreateWithoutChaveInput[] | Prisma.EmprestimoUncheckedCreateWithoutChaveInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutChaveInput | Prisma.EmprestimoCreateOrConnectWithoutChaveInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutChaveInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutChaveInput[];
+    createMany?: Prisma.EmprestimoCreateManyChaveInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutChaveInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutChaveInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutChaveInput | Prisma.EmprestimoUpdateManyWithWhereWithoutChaveInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoUncheckedUpdateManyWithoutChaveNestedInput = {
+    create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput> | Prisma.EmprestimoCreateWithoutChaveInput[] | Prisma.EmprestimoUncheckedCreateWithoutChaveInput[];
+    connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutChaveInput | Prisma.EmprestimoCreateOrConnectWithoutChaveInput[];
+    upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutChaveInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutChaveInput[];
+    createMany?: Prisma.EmprestimoCreateManyChaveInputEnvelope;
+    set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[];
+    update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutChaveInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutChaveInput[];
+    updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutChaveInput | Prisma.EmprestimoUpdateManyWithWhereWithoutChaveInput[];
+    deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+};
+export type EmprestimoCreateWithoutOperadorInput = {
+    id: string;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput;
+    UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput;
+    UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput;
+};
+export type EmprestimoUncheckedCreateWithoutOperadorInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoCreateOrConnectWithoutOperadorInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput>;
+};
+export type EmprestimoCreateManyOperadorInputEnvelope = {
+    data: Prisma.EmprestimoCreateManyOperadorInput | Prisma.EmprestimoCreateManyOperadorInput[];
+    skipDuplicates?: boolean;
+};
+export type EmprestimoUpsertWithWhereUniqueWithoutOperadorInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorInput>;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput>;
+};
+export type EmprestimoUpdateWithWhereUniqueWithoutOperadorInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorInput>;
+};
+export type EmprestimoUpdateManyWithWhereWithoutOperadorInput = {
+    where: Prisma.EmprestimoScalarWhereInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorInput>;
+};
+export type EmprestimoScalarWhereInput = {
+    AND?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+    OR?: Prisma.EmprestimoScalarWhereInput[];
+    NOT?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[];
+    id?: Prisma.StringFilter<"Emprestimo"> | string;
+    chaveId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string;
+    usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null;
+    status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFilter<"Emprestimo"> | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.StringNullableFilter<"Emprestimo"> | string | null;
+    createdAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string;
+};
+export type EmprestimoCreateWithoutUsuarioSolicitanteInput = {
+    id: string;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput;
+    UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput;
+    Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput;
+};
+export type EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput = {
+    id: string;
+    chaveId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoCreateOrConnectWithoutUsuarioSolicitanteInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput>;
+};
+export type EmprestimoCreateManyUsuarioSolicitanteInputEnvelope = {
+    data: Prisma.EmprestimoCreateManyUsuarioSolicitanteInput | Prisma.EmprestimoCreateManyUsuarioSolicitanteInput[];
+    skipDuplicates?: boolean;
+};
+export type EmprestimoCreateWithoutUsuarioDevolucaoInput = {
+    id: string;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput;
+    UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput;
+    Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput;
+};
+export type EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoCreateOrConnectWithoutUsuarioDevolucaoInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput>;
+};
+export type EmprestimoCreateManyUsuarioDevolucaoInputEnvelope = {
+    data: Prisma.EmprestimoCreateManyUsuarioDevolucaoInput | Prisma.EmprestimoCreateManyUsuarioDevolucaoInput[];
+    skipDuplicates?: boolean;
+};
+export type EmprestimoUpsertWithWhereUniqueWithoutUsuarioSolicitanteInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedUpdateWithoutUsuarioSolicitanteInput>;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput>;
+};
+export type EmprestimoUpdateWithWhereUniqueWithoutUsuarioSolicitanteInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutUsuarioSolicitanteInput, Prisma.EmprestimoUncheckedUpdateWithoutUsuarioSolicitanteInput>;
+};
+export type EmprestimoUpdateManyWithWhereWithoutUsuarioSolicitanteInput = {
+    where: Prisma.EmprestimoScalarWhereInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutUsuarioSolicitanteInput>;
+};
+export type EmprestimoUpsertWithWhereUniqueWithoutUsuarioDevolucaoInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedUpdateWithoutUsuarioDevolucaoInput>;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput>;
+};
+export type EmprestimoUpdateWithWhereUniqueWithoutUsuarioDevolucaoInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutUsuarioDevolucaoInput, Prisma.EmprestimoUncheckedUpdateWithoutUsuarioDevolucaoInput>;
+};
+export type EmprestimoUpdateManyWithWhereWithoutUsuarioDevolucaoInput = {
+    where: Prisma.EmprestimoScalarWhereInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutUsuarioDevolucaoInput>;
+};
+export type EmprestimoCreateWithoutChaveInput = {
+    id: string;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput;
+    UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput;
+    Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput;
+};
+export type EmprestimoUncheckedCreateWithoutChaveInput = {
+    id: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoCreateOrConnectWithoutChaveInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput>;
+};
+export type EmprestimoCreateManyChaveInputEnvelope = {
+    data: Prisma.EmprestimoCreateManyChaveInput | Prisma.EmprestimoCreateManyChaveInput[];
+    skipDuplicates?: boolean;
+};
+export type EmprestimoUpsertWithWhereUniqueWithoutChaveInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutChaveInput, Prisma.EmprestimoUncheckedUpdateWithoutChaveInput>;
+    create: Prisma.XOR<Prisma.EmprestimoCreateWithoutChaveInput, Prisma.EmprestimoUncheckedCreateWithoutChaveInput>;
+};
+export type EmprestimoUpdateWithWhereUniqueWithoutChaveInput = {
+    where: Prisma.EmprestimoWhereUniqueInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutChaveInput, Prisma.EmprestimoUncheckedUpdateWithoutChaveInput>;
+};
+export type EmprestimoUpdateManyWithWhereWithoutChaveInput = {
+    where: Prisma.EmprestimoScalarWhereInput;
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutChaveInput>;
+};
+export type EmprestimoCreateManyOperadorInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoUpdateWithoutOperadorInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput;
+    UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput;
+    UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput;
+};
+export type EmprestimoUncheckedUpdateWithoutOperadorInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUncheckedUpdateManyWithoutOperadorInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoCreateManyUsuarioSolicitanteInput = {
+    id: string;
+    chaveId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoCreateManyUsuarioDevolucaoInput = {
+    id: string;
+    chaveId: string;
+    usuarioSolicitanteId: string;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoUpdateWithoutUsuarioSolicitanteInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput;
+    UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput;
+    Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput;
+};
+export type EmprestimoUncheckedUpdateWithoutUsuarioSolicitanteInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUncheckedUpdateManyWithoutUsuarioSolicitanteInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUpdateWithoutUsuarioDevolucaoInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput;
+    UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput;
+    Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput;
+};
+export type EmprestimoUncheckedUpdateWithoutUsuarioDevolucaoInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUncheckedUpdateManyWithoutUsuarioDevolucaoInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    chaveId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoCreateManyChaveInput = {
+    id: string;
+    usuarioSolicitanteId: string;
+    usuarioDevolucaoId?: string | null;
+    operadorId?: string | null;
+    dataRetirada: Date | string;
+    dataRetorno?: Date | string | null;
+    status: $Enums.Status;
+    tipo?: $Enums.TipoEmprestimo;
+    justificativa?: string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type EmprestimoUpdateWithoutChaveInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput;
+    UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput;
+    Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput;
+};
+export type EmprestimoUncheckedUpdateWithoutChaveInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoUncheckedUpdateManyWithoutChaveInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string;
+    usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status;
+    tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo;
+    justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type EmprestimoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    chaveId?: boolean;
+    usuarioSolicitanteId?: boolean;
+    usuarioDevolucaoId?: boolean;
+    operadorId?: boolean;
+    dataRetirada?: boolean;
+    dataRetorno?: boolean;
+    status?: boolean;
+    tipo?: boolean;
+    justificativa?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+}, ExtArgs["result"]["emprestimo"]>;
+export type EmprestimoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    chaveId?: boolean;
+    usuarioSolicitanteId?: boolean;
+    usuarioDevolucaoId?: boolean;
+    operadorId?: boolean;
+    dataRetirada?: boolean;
+    dataRetorno?: boolean;
+    status?: boolean;
+    tipo?: boolean;
+    justificativa?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+}, ExtArgs["result"]["emprestimo"]>;
+export type EmprestimoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    chaveId?: boolean;
+    usuarioSolicitanteId?: boolean;
+    usuarioDevolucaoId?: boolean;
+    operadorId?: boolean;
+    dataRetirada?: boolean;
+    dataRetorno?: boolean;
+    status?: boolean;
+    tipo?: boolean;
+    justificativa?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+}, ExtArgs["result"]["emprestimo"]>;
+export type EmprestimoSelectScalar = {
+    id?: boolean;
+    chaveId?: boolean;
+    usuarioSolicitanteId?: boolean;
+    usuarioDevolucaoId?: boolean;
+    operadorId?: boolean;
+    dataRetirada?: boolean;
+    dataRetorno?: boolean;
+    status?: boolean;
+    tipo?: boolean;
+    justificativa?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+};
+export type EmprestimoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "chaveId" | "usuarioSolicitanteId" | "usuarioDevolucaoId" | "operadorId" | "dataRetirada" | "dataRetorno" | "status" | "tipo" | "justificativa" | "createdAt" | "updatedAt", ExtArgs["result"]["emprestimo"]>;
+export type EmprestimoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+};
+export type EmprestimoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+};
+export type EmprestimoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>;
+    UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>;
+    UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>;
+    Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>;
+};
+export type $EmprestimoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Emprestimo";
+    objects: {
+        Chave: Prisma.$ChavePayload<ExtArgs>;
+        UsuarioSolicitante: Prisma.$UsuariosPayload<ExtArgs>;
+        UsuarioDevolucao: Prisma.$UsuariosPayload<ExtArgs> | null;
+        Operador: Prisma.$OperadoresPayload<ExtArgs> | null;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        chaveId: string;
+        usuarioSolicitanteId: string;
+        usuarioDevolucaoId: string | null;
+        operadorId: string | null;
+        dataRetirada: Date;
+        dataRetorno: Date | null;
+        status: $Enums.Status;
+        tipo: $Enums.TipoEmprestimo;
+        justificativa: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }, ExtArgs["result"]["emprestimo"]>;
+    composites: {};
+};
+export type EmprestimoGetPayload<S extends boolean | null | undefined | EmprestimoDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload, S>;
+export type EmprestimoCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<EmprestimoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: EmprestimoCountAggregateInputType | true;
+};
+export interface EmprestimoDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Emprestimo'];
+        meta: {
+            name: 'Emprestimo';
+        };
+    };
+    /**
+     * Find zero or one Emprestimo that matches the filter.
+     * @param {EmprestimoFindUniqueArgs} args - Arguments to find a Emprestimo
+     * @example
+     * // Get one Emprestimo
+     * const emprestimo = await prisma.emprestimo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmprestimoFindUniqueArgs>(args: Prisma.SelectSubset<T, EmprestimoFindUniqueArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Emprestimo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmprestimoFindUniqueOrThrowArgs} args - Arguments to find a Emprestimo
+     * @example
+     * // Get one Emprestimo
+     * const emprestimo = await prisma.emprestimo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmprestimoFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, EmprestimoFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Emprestimo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoFindFirstArgs} args - Arguments to find a Emprestimo
+     * @example
+     * // Get one Emprestimo
+     * const emprestimo = await prisma.emprestimo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmprestimoFindFirstArgs>(args?: Prisma.SelectSubset<T, EmprestimoFindFirstArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Emprestimo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoFindFirstOrThrowArgs} args - Arguments to find a Emprestimo
+     * @example
+     * // Get one Emprestimo
+     * const emprestimo = await prisma.emprestimo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmprestimoFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, EmprestimoFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Emprestimos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Emprestimos
+     * const emprestimos = await prisma.emprestimo.findMany()
+     *
+     * // Get first 10 Emprestimos
+     * const emprestimos = await prisma.emprestimo.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const emprestimoWithIdOnly = await prisma.emprestimo.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends EmprestimoFindManyArgs>(args?: Prisma.SelectSubset<T, EmprestimoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Emprestimo.
+     * @param {EmprestimoCreateArgs} args - Arguments to create a Emprestimo.
+     * @example
+     * // Create one Emprestimo
+     * const Emprestimo = await prisma.emprestimo.create({
+     *   data: {
+     *     // ... data to create a Emprestimo
+     *   }
+     * })
+     *
+     */
+    create<T extends EmprestimoCreateArgs>(args: Prisma.SelectSubset<T, EmprestimoCreateArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Emprestimos.
+     * @param {EmprestimoCreateManyArgs} args - Arguments to create many Emprestimos.
+     * @example
+     * // Create many Emprestimos
+     * const emprestimo = await prisma.emprestimo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends EmprestimoCreateManyArgs>(args?: Prisma.SelectSubset<T, EmprestimoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Emprestimos and returns the data saved in the database.
+     * @param {EmprestimoCreateManyAndReturnArgs} args - Arguments to create many Emprestimos.
+     * @example
+     * // Create many Emprestimos
+     * const emprestimo = await prisma.emprestimo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Emprestimos and only return the `id`
+     * const emprestimoWithIdOnly = await prisma.emprestimo.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends EmprestimoCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, EmprestimoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Emprestimo.
+     * @param {EmprestimoDeleteArgs} args - Arguments to delete one Emprestimo.
+     * @example
+     * // Delete one Emprestimo
+     * const Emprestimo = await prisma.emprestimo.delete({
+     *   where: {
+     *     // ... filter to delete one Emprestimo
+     *   }
+     * })
+     *
+     */
+    delete<T extends EmprestimoDeleteArgs>(args: Prisma.SelectSubset<T, EmprestimoDeleteArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Emprestimo.
+     * @param {EmprestimoUpdateArgs} args - Arguments to update one Emprestimo.
+     * @example
+     * // Update one Emprestimo
+     * const emprestimo = await prisma.emprestimo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends EmprestimoUpdateArgs>(args: Prisma.SelectSubset<T, EmprestimoUpdateArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Emprestimos.
+     * @param {EmprestimoDeleteManyArgs} args - Arguments to filter Emprestimos to delete.
+     * @example
+     * // Delete a few Emprestimos
+     * const { count } = await prisma.emprestimo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends EmprestimoDeleteManyArgs>(args?: Prisma.SelectSubset<T, EmprestimoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Emprestimos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Emprestimos
+     * const emprestimo = await prisma.emprestimo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends EmprestimoUpdateManyArgs>(args: Prisma.SelectSubset<T, EmprestimoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Emprestimos and returns the data updated in the database.
+     * @param {EmprestimoUpdateManyAndReturnArgs} args - Arguments to update many Emprestimos.
+     * @example
+     * // Update many Emprestimos
+     * const emprestimo = await prisma.emprestimo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Emprestimos and only return the `id`
+     * const emprestimoWithIdOnly = await prisma.emprestimo.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends EmprestimoUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, EmprestimoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Emprestimo.
+     * @param {EmprestimoUpsertArgs} args - Arguments to update or create a Emprestimo.
+     * @example
+     * // Update or create a Emprestimo
+     * const emprestimo = await prisma.emprestimo.upsert({
+     *   create: {
+     *     // ... data to create a Emprestimo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Emprestimo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmprestimoUpsertArgs>(args: Prisma.SelectSubset<T, EmprestimoUpsertArgs<ExtArgs>>): Prisma.Prisma__EmprestimoClient<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Emprestimos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoCountArgs} args - Arguments to filter Emprestimos to count.
+     * @example
+     * // Count the number of Emprestimos
+     * const count = await prisma.emprestimo.count({
+     *   where: {
+     *     // ... the filter for the Emprestimos we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmprestimoCountArgs>(args?: Prisma.Subset<T, EmprestimoCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], EmprestimoCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Emprestimo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmprestimoAggregateArgs>(args: Prisma.Subset<T, EmprestimoAggregateArgs>): Prisma.PrismaPromise<GetEmprestimoAggregateType<T>>;
+    /**
+     * Group by Emprestimo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmprestimoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends EmprestimoGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: EmprestimoGroupByArgs['orderBy'];
+    } : {
+        orderBy?: EmprestimoGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, EmprestimoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmprestimoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Emprestimo model
+     */
+    readonly fields: EmprestimoFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Emprestimo.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__EmprestimoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    Chave<T extends Prisma.ChaveDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ChaveDefaultArgs<ExtArgs>>): Prisma.Prisma__ChaveClient<runtime.Types.Result.GetResult<Prisma.$ChavePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    UsuarioSolicitante<T extends Prisma.UsuariosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuariosDefaultArgs<ExtArgs>>): Prisma.Prisma__UsuariosClient<runtime.Types.Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    UsuarioDevolucao<T extends Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>>): Prisma.Prisma__UsuariosClient<runtime.Types.Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    Operador<T extends Prisma.Emprestimo$OperadorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$OperadorArgs<ExtArgs>>): Prisma.Prisma__OperadoresClient<runtime.Types.Result.GetResult<Prisma.$OperadoresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Emprestimo model
+ */
+export interface EmprestimoFieldRefs {
+    readonly id: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly chaveId: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly usuarioSolicitanteId: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly usuarioDevolucaoId: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly operadorId: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly dataRetirada: Prisma.FieldRef<"Emprestimo", 'DateTime'>;
+    readonly dataRetorno: Prisma.FieldRef<"Emprestimo", 'DateTime'>;
+    readonly status: Prisma.FieldRef<"Emprestimo", 'Status'>;
+    readonly tipo: Prisma.FieldRef<"Emprestimo", 'TipoEmprestimo'>;
+    readonly justificativa: Prisma.FieldRef<"Emprestimo", 'String'>;
+    readonly createdAt: Prisma.FieldRef<"Emprestimo", 'DateTime'>;
+    readonly updatedAt: Prisma.FieldRef<"Emprestimo", 'DateTime'>;
+}
+/**
+ * Emprestimo findUnique
+ */
+export type EmprestimoFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter, which Emprestimo to fetch.
+     */
+    where: Prisma.EmprestimoWhereUniqueInput;
+};
+/**
+ * Emprestimo findUniqueOrThrow
+ */
+export type EmprestimoFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter, which Emprestimo to fetch.
+     */
+    where: Prisma.EmprestimoWhereUniqueInput;
+};
+/**
+ * Emprestimo findFirst
+ */
+export type EmprestimoFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter, which Emprestimo to fetch.
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Emprestimos to fetch.
+     */
+    orderBy?: Prisma.EmprestimoOrderByWithRelationInput | Prisma.EmprestimoOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Emprestimos.
+     */
+    cursor?: Prisma.EmprestimoWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Emprestimos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Emprestimos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Emprestimos.
+     */
+    distinct?: Prisma.EmprestimoScalarFieldEnum | Prisma.EmprestimoScalarFieldEnum[];
+};
+/**
+ * Emprestimo findFirstOrThrow
+ */
+export type EmprestimoFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter, which Emprestimo to fetch.
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Emprestimos to fetch.
+     */
+    orderBy?: Prisma.EmprestimoOrderByWithRelationInput | Prisma.EmprestimoOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Emprestimos.
+     */
+    cursor?: Prisma.EmprestimoWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Emprestimos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Emprestimos.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Emprestimos.
+     */
+    distinct?: Prisma.EmprestimoScalarFieldEnum | Prisma.EmprestimoScalarFieldEnum[];
+};
+/**
+ * Emprestimo findMany
+ */
+export type EmprestimoFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter, which Emprestimos to fetch.
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Emprestimos to fetch.
+     */
+    orderBy?: Prisma.EmprestimoOrderByWithRelationInput | Prisma.EmprestimoOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Emprestimos.
+     */
+    cursor?: Prisma.EmprestimoWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Emprestimos from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Emprestimos.
+     */
+    skip?: number;
+    distinct?: Prisma.EmprestimoScalarFieldEnum | Prisma.EmprestimoScalarFieldEnum[];
+};
+/**
+ * Emprestimo create
+ */
+export type EmprestimoCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a Emprestimo.
+     */
+    data: Prisma.XOR<Prisma.EmprestimoCreateInput, Prisma.EmprestimoUncheckedCreateInput>;
+};
+/**
+ * Emprestimo createMany
+ */
+export type EmprestimoCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Emprestimos.
+     */
+    data: Prisma.EmprestimoCreateManyInput | Prisma.EmprestimoCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Emprestimo createManyAndReturn
+ */
+export type EmprestimoCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * The data used to create many Emprestimos.
+     */
+    data: Prisma.EmprestimoCreateManyInput | Prisma.EmprestimoCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * Emprestimo update
+ */
+export type EmprestimoUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a Emprestimo.
+     */
+    data: Prisma.XOR<Prisma.EmprestimoUpdateInput, Prisma.EmprestimoUncheckedUpdateInput>;
+    /**
+     * Choose, which Emprestimo to update.
+     */
+    where: Prisma.EmprestimoWhereUniqueInput;
+};
+/**
+ * Emprestimo updateMany
+ */
+export type EmprestimoUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Emprestimos.
+     */
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyInput>;
+    /**
+     * Filter which Emprestimos to update
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * Limit how many Emprestimos to update.
+     */
+    limit?: number;
+};
+/**
+ * Emprestimo updateManyAndReturn
+ */
+export type EmprestimoUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * The data used to update Emprestimos.
+     */
+    data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyInput>;
+    /**
+     * Filter which Emprestimos to update
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * Limit how many Emprestimos to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * Emprestimo upsert
+ */
+export type EmprestimoUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the Emprestimo to update in case it exists.
+     */
+    where: Prisma.EmprestimoWhereUniqueInput;
+    /**
+     * In case the Emprestimo found by the `where` argument doesn't exist, create a new Emprestimo with this data.
+     */
+    create: Prisma.XOR<Prisma.EmprestimoCreateInput, Prisma.EmprestimoUncheckedCreateInput>;
+    /**
+     * In case the Emprestimo was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.EmprestimoUpdateInput, Prisma.EmprestimoUncheckedUpdateInput>;
+};
+/**
+ * Emprestimo delete
+ */
+export type EmprestimoDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+    /**
+     * Filter which Emprestimo to delete.
+     */
+    where: Prisma.EmprestimoWhereUniqueInput;
+};
+/**
+ * Emprestimo deleteMany
+ */
+export type EmprestimoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Emprestimos to delete
+     */
+    where?: Prisma.EmprestimoWhereInput;
+    /**
+     * Limit how many Emprestimos to delete.
+     */
+    limit?: number;
+};
+/**
+ * Emprestimo.UsuarioDevolucao
+ */
+export type Emprestimo$UsuarioDevolucaoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Usuarios
+     */
+    select?: Prisma.UsuariosSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Usuarios
+     */
+    omit?: Prisma.UsuariosOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.UsuariosInclude<ExtArgs> | null;
+    where?: Prisma.UsuariosWhereInput;
+};
+/**
+ * Emprestimo.Operador
+ */
+export type Emprestimo$OperadorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Operadores
+     */
+    select?: Prisma.OperadoresSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Operadores
+     */
+    omit?: Prisma.OperadoresOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.OperadoresInclude<ExtArgs> | null;
+    where?: Prisma.OperadoresWhereInput;
+};
+/**
+ * Emprestimo without action
+ */
+export type EmprestimoDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emprestimo
+     */
+    select?: Prisma.EmprestimoSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Emprestimo
+     */
+    omit?: Prisma.EmprestimoOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.EmprestimoInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=Emprestimo.d.ts.map

@@ -1,0 +1,2 @@
+export declare const database: import("../types/prisma/internal/class.js").PrismaClient<never, import("../types/prisma/internal/prismaNamespace.js").GlobalOmitConfig | undefined, import("@prisma/client/runtime/client").DefaultArgs>;
+//# sourceMappingURL=prisma.d.ts.map

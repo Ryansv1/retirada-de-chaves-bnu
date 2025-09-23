@@ -1,0 +1,3 @@
+import { FastifyError, FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+export declare function HTTPErrorHandler(app: FastifyInstance, err: FastifyError, request: FastifyRequest, reply: FastifyReply): FastifyReply<import("fastify").RouteGenericInterface, import("fastify").RawServerDefault, import("http").IncomingMessage, import("http").ServerResponse<import("http").IncomingMessage>, unknown, import("fastify").FastifySchema, import("fastify").FastifyTypeProviderDefault, unknown>;
+//# sourceMappingURL=http.d.ts.map

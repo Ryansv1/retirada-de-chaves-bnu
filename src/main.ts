@@ -3,16 +3,11 @@ import env, { type Config } from './plugins/env.js';
 import helmet from './plugins/helmet.js';
 import scalar from './plugins/scalar.js';
 import swagger from './plugins/swagger.js';
-import rateLimit from './plugins/rate-limit.js';
 import multipart from './plugins/multipart.js';
 import cors from './plugins/cors.js';
 
 import { HTTPErrorHandler } from './utils/http.js';
-import type { ZodTypeProvider } from 'fastify-type-provider-zod';
-import {
-  serializerCompiler,
-  validatorCompiler,
-} from 'fastify-type-provider-zod';
+import { validatorCompiler } from 'fastify-type-provider-zod';
 
 import healthcheck from './routes/healthcheck.js';
 import Emprestimos from './routes/emprestimos.js';

@@ -1,17 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const helmet_1 = __importDefault(require("@fastify/helmet"));
-const fastify_plugin_1 = __importDefault(require("fastify-plugin"));
-exports.default = (0, fastify_plugin_1.default)(async (app) => {
-    await app.register(helmet_1.default, {
+import fastifyHelmet from '@fastify/helmet';
+import fp from 'fastify-plugin';
+export default fp(async (app) => {
+    await app.register(fastifyHelmet, {
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],
-                scriptSrc: ["'self'"],
-                styleSrc: ["'self'", 'https:'],
+                scriptSrc: ["'self'", "'unsafe-inline'"],
+                styleSrc: ["'self'", "'unsafe-inline'", 'https:'],
                 imgSrc: ["'self'", 'data:', 'https:'],
                 objectSrc: ["'none'"],
                 upgradeInsecureRequests: [],
@@ -22,6 +17,7 @@ exports.default = (0, fastify_plugin_1.default)(async (app) => {
         xssFilter: true,
         noSniff: true,
         frameguard: { action: 'deny' },
+        prefix: '/api',
     });
 });
 //# sourceMappingURL=helmet.js.map
