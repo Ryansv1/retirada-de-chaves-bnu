@@ -477,5 +477,5 @@ async function main() {
 
 await main().then(() => {
   console.warn('Seed finalizado.');
-  process.exit(1);
+  process.exit(0);
 });
