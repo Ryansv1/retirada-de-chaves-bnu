@@ -3,7 +3,7 @@ import fp from 'fastify-plugin';
 
 export default fp(async (app) => {
   await app.register(fastifyCors, {
-    origin: process.env.CLIENT_URL!,
+    origin: [process.env.CLIENT_URL!, process.env.ADMIN_URL!],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     credentials: true,
