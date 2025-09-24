@@ -22,4 +22,4 @@ RUN pnpm install --prod
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-CMD ["node", "dist/main.js"]
+CMD ["sh", "-c", "npm run db:deploy && npm run db:seed && npm run start"]
