@@ -111,7 +111,8 @@ export default async function Emprestimos(app: FastifyInstance) {
           },
           include: {
             Chave: true,
-            Operador: true,
+            OperadorDevolucao: true,
+            OperadorSolicitacao: true,
             UsuarioDevolucao: true,
             UsuarioSolicitante: true,
           },
@@ -137,11 +138,16 @@ export default async function Emprestimos(app: FastifyInstance) {
     },
     preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
+      const operadorId = req.session?.user.id;
       const { matricula } = req.body;
       const chaveId = req.params.chaveId;
 
       try {
         const novoEmprestimo = await database.$transaction(async (tx) => {
+          if (!operadorId) {
+            throw new HTTPError(400, 'ID do Operador Faltante.');
+          }
+
           // 1. Buscamos o requisitante primeiro.
           const requisitante = await tx.usuarios.findUnique({
             where: { matricula },
@@ -150,6 +156,16 @@ export default async function Emprestimos(app: FastifyInstance) {
           if (!requisitante) {
             // Lançar um erro aqui dentro fará a transação ser revertida (rollback).
             throw new HTTPError(404, 'Não foi encontrado o requisistante.');
+          }
+
+          const operador = await tx.operadores.findUnique({
+            where: {
+              id: operadorId,
+            },
+          });
+
+          if (!operador) {
+            throw new HTTPError(404, 'Operador não encontrado');
           }
 
           // Buscamos a chave E verificamos se ela já tem um empréstimo PENDENTE em uma única query.
@@ -181,8 +197,7 @@ export default async function Emprestimos(app: FastifyInstance) {
               chaveId: chave.id,
               usuarioSolicitanteId: requisitante.id,
               tipo: 'NORMAL',
-              // Se você tiver o ID do operador logado, adicione aqui:
-              // operadorRegistroId: req.user.id
+              operadorSolicitacaoId: operadorId,
             },
           });
 
@@ -216,12 +231,26 @@ export default async function Emprestimos(app: FastifyInstance) {
     },
     preHandler: [AuthenticatedOnly],
     handler: async (req, reply) => {
+      const operadorId = req.session?.user.id;
       const { chaveId } = req.params;
       const { matricula } = req.body;
 
       try {
         // Toda a lógica de leitura e escrita está dentro da transação.
         await database.$transaction(async (tx) => {
+          if (!operadorId) {
+            throw new HTTPError(400, 'ID do Operador Faltante.');
+          }
+
+          const operador = await tx.operadores.findUnique({
+            where: {
+              id: operadorId,
+            },
+          });
+
+          if (!operador) {
+            throw new HTTPError(404, 'Operador não encontrado');
+          }
           // 1. Encontrar o usuário que está devolvendo
           const usuarioDevolucao = await tx.usuarios.findUnique({
             where: { matricula },
@@ -257,8 +286,7 @@ export default async function Emprestimos(app: FastifyInstance) {
               status: 'DEVOLVIDO',
               dataRetorno: DateTime.now().toISO(), // Adiciona a data/hora da devolução
               usuarioDevolucaoId: usuarioDevolucao.id, // Adiciona quem devolveu
-              // TODO: Adicionar o ID do operador logado que registrou a devolução
-              // operadorDevolucaoId: req.user.id
+              operadorDevolucaoId: operadorId, // Operador que efetuou a solicitação
             },
           });
           return;
@@ -308,10 +336,25 @@ export default async function Emprestimos(app: FastifyInstance) {
     handler: async (req, reply) => {
       const { chaveId, dataRetirada, justificativa, status, dataRetorno } =
         req.body;
+      const operadorId = req.session?.user.id;
 
       try {
         const novoEmprestimoAdministrativo = await database.$transaction(
           async (tx) => {
+            if (!operadorId) {
+              throw new HTTPError(400, 'ID do Operador Faltante.');
+            }
+
+            const operador = await tx.operadores.findUnique({
+              where: {
+                id: operadorId,
+              },
+            });
+
+            if (!operador) {
+              throw new HTTPError(404, 'Operador não encontrado');
+            }
+
             const chave = await tx.chave.findUnique({
               where: {
                 id: chaveId,
@@ -346,8 +389,12 @@ export default async function Emprestimos(app: FastifyInstance) {
                 id: uuidv7(),
                 chaveId: chaveId,
                 usuarioSolicitanteId: 'LANCAMENTO_ADMINISTRATIVO',
+                usuarioDevolucaoId:
+                  status === 'DEVOLVIDO' ? 'LANCAMENTO_ADMINISTRATIVO' : null,
                 tipo: 'ADMINISTRATIVO',
                 dataRetirada: dataRetirada,
+                operadorDevolucaoId: status === 'DEVOLVIDO' ? operadorId : null,
+                operadorSolicitacaoId: operadorId,
                 status: status,
                 dataRetorno: status === 'DEVOLVIDO' ? dataRetorno! : null,
                 justificativa: justificativa,

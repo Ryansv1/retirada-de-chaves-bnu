@@ -28,7 +28,8 @@ export type EmprestimoMinAggregateOutputType = {
   chaveId: string | null
   usuarioSolicitanteId: string | null
   usuarioDevolucaoId: string | null
-  operadorId: string | null
+  operadorSolicitacaoId: string | null
+  operadorDevolucaoId: string | null
   dataRetirada: Date | null
   dataRetorno: Date | null
   status: $Enums.Status | null
@@ -43,7 +44,8 @@ export type EmprestimoMaxAggregateOutputType = {
   chaveId: string | null
   usuarioSolicitanteId: string | null
   usuarioDevolucaoId: string | null
-  operadorId: string | null
+  operadorSolicitacaoId: string | null
+  operadorDevolucaoId: string | null
   dataRetirada: Date | null
   dataRetorno: Date | null
   status: $Enums.Status | null
@@ -58,7 +60,8 @@ export type EmprestimoCountAggregateOutputType = {
   chaveId: number
   usuarioSolicitanteId: number
   usuarioDevolucaoId: number
-  operadorId: number
+  operadorSolicitacaoId: number
+  operadorDevolucaoId: number
   dataRetirada: number
   dataRetorno: number
   status: number
@@ -75,7 +78,8 @@ export type EmprestimoMinAggregateInputType = {
   chaveId?: true
   usuarioSolicitanteId?: true
   usuarioDevolucaoId?: true
-  operadorId?: true
+  operadorSolicitacaoId?: true
+  operadorDevolucaoId?: true
   dataRetirada?: true
   dataRetorno?: true
   status?: true
@@ -90,7 +94,8 @@ export type EmprestimoMaxAggregateInputType = {
   chaveId?: true
   usuarioSolicitanteId?: true
   usuarioDevolucaoId?: true
-  operadorId?: true
+  operadorSolicitacaoId?: true
+  operadorDevolucaoId?: true
   dataRetirada?: true
   dataRetorno?: true
   status?: true
@@ -105,7 +110,8 @@ export type EmprestimoCountAggregateInputType = {
   chaveId?: true
   usuarioSolicitanteId?: true
   usuarioDevolucaoId?: true
-  operadorId?: true
+  operadorSolicitacaoId?: true
+  operadorDevolucaoId?: true
   dataRetirada?: true
   dataRetorno?: true
   status?: true
@@ -193,7 +199,8 @@ export type EmprestimoGroupByOutputType = {
   chaveId: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId: string | null
-  operadorId: string | null
+  operadorSolicitacaoId: string | null
+  operadorDevolucaoId: string | null
   dataRetirada: Date
   dataRetorno: Date | null
   status: $Enums.Status
@@ -229,7 +236,8 @@ export type EmprestimoWhereInput = {
   chaveId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
-  operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorSolicitacaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
   dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string
   dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null
   status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status
@@ -240,7 +248,8 @@ export type EmprestimoWhereInput = {
   Chave?: Prisma.XOR<Prisma.ChaveScalarRelationFilter, Prisma.ChaveWhereInput>
   UsuarioSolicitante?: Prisma.XOR<Prisma.UsuariosScalarRelationFilter, Prisma.UsuariosWhereInput>
   UsuarioDevolucao?: Prisma.XOR<Prisma.UsuariosNullableScalarRelationFilter, Prisma.UsuariosWhereInput> | null
-  Operador?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
+  OperadorSolicitacao?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
+  OperadorDevolucao?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
 }
 
 export type EmprestimoOrderByWithRelationInput = {
@@ -248,7 +257,8 @@ export type EmprestimoOrderByWithRelationInput = {
   chaveId?: Prisma.SortOrder
   usuarioSolicitanteId?: Prisma.SortOrder
   usuarioDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder
-  operadorId?: Prisma.SortOrderInput | Prisma.SortOrder
+  operadorSolicitacaoId?: Prisma.SortOrderInput | Prisma.SortOrder
+  operadorDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder
   dataRetirada?: Prisma.SortOrder
   dataRetorno?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -259,7 +269,8 @@ export type EmprestimoOrderByWithRelationInput = {
   Chave?: Prisma.ChaveOrderByWithRelationInput
   UsuarioSolicitante?: Prisma.UsuariosOrderByWithRelationInput
   UsuarioDevolucao?: Prisma.UsuariosOrderByWithRelationInput
-  Operador?: Prisma.OperadoresOrderByWithRelationInput
+  OperadorSolicitacao?: Prisma.OperadoresOrderByWithRelationInput
+  OperadorDevolucao?: Prisma.OperadoresOrderByWithRelationInput
 }
 
 export type EmprestimoWhereUniqueInput = Prisma.AtLeast<{
@@ -270,7 +281,8 @@ export type EmprestimoWhereUniqueInput = Prisma.AtLeast<{
   chaveId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
-  operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorSolicitacaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
   dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string
   dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null
   status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status
@@ -281,7 +293,8 @@ export type EmprestimoWhereUniqueInput = Prisma.AtLeast<{
   Chave?: Prisma.XOR<Prisma.ChaveScalarRelationFilter, Prisma.ChaveWhereInput>
   UsuarioSolicitante?: Prisma.XOR<Prisma.UsuariosScalarRelationFilter, Prisma.UsuariosWhereInput>
   UsuarioDevolucao?: Prisma.XOR<Prisma.UsuariosNullableScalarRelationFilter, Prisma.UsuariosWhereInput> | null
-  Operador?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
+  OperadorSolicitacao?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
+  OperadorDevolucao?: Prisma.XOR<Prisma.OperadoresNullableScalarRelationFilter, Prisma.OperadoresWhereInput> | null
 }, "id">
 
 export type EmprestimoOrderByWithAggregationInput = {
@@ -289,7 +302,8 @@ export type EmprestimoOrderByWithAggregationInput = {
   chaveId?: Prisma.SortOrder
   usuarioSolicitanteId?: Prisma.SortOrder
   usuarioDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder
-  operadorId?: Prisma.SortOrderInput | Prisma.SortOrder
+  operadorSolicitacaoId?: Prisma.SortOrderInput | Prisma.SortOrder
+  operadorDevolucaoId?: Prisma.SortOrderInput | Prisma.SortOrder
   dataRetirada?: Prisma.SortOrder
   dataRetorno?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -310,7 +324,8 @@ export type EmprestimoScalarWhereWithAggregatesInput = {
   chaveId?: Prisma.StringWithAggregatesFilter<"Emprestimo"> | string
   usuarioSolicitanteId?: Prisma.StringWithAggregatesFilter<"Emprestimo"> | string
   usuarioDevolucaoId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null
-  operadorId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null
+  operadorSolicitacaoId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null
+  operadorDevolucaoId?: Prisma.StringNullableWithAggregatesFilter<"Emprestimo"> | string | null
   dataRetirada?: Prisma.DateTimeWithAggregatesFilter<"Emprestimo"> | Date | string
   dataRetorno?: Prisma.DateTimeNullableWithAggregatesFilter<"Emprestimo"> | Date | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"Emprestimo"> | $Enums.Status
@@ -332,7 +347,8 @@ export type EmprestimoCreateInput = {
   Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput
   UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput
   UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput
-  Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorSolicitacao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorDevolucao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput
 }
 
 export type EmprestimoUncheckedCreateInput = {
@@ -340,7 +356,8 @@ export type EmprestimoUncheckedCreateInput = {
   chaveId: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -362,7 +379,8 @@ export type EmprestimoUpdateInput = {
   Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput
   UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput
   UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput
-  Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorSolicitacao?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorDevolucao?: Prisma.OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput
 }
 
 export type EmprestimoUncheckedUpdateInput = {
@@ -370,7 +388,8 @@ export type EmprestimoUncheckedUpdateInput = {
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -385,7 +404,8 @@ export type EmprestimoCreateManyInput = {
   chaveId: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -411,7 +431,8 @@ export type EmprestimoUncheckedUpdateManyInput = {
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -436,7 +457,8 @@ export type EmprestimoCountOrderByAggregateInput = {
   chaveId?: Prisma.SortOrder
   usuarioSolicitanteId?: Prisma.SortOrder
   usuarioDevolucaoId?: Prisma.SortOrder
-  operadorId?: Prisma.SortOrder
+  operadorSolicitacaoId?: Prisma.SortOrder
+  operadorDevolucaoId?: Prisma.SortOrder
   dataRetirada?: Prisma.SortOrder
   dataRetorno?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -451,7 +473,8 @@ export type EmprestimoMaxOrderByAggregateInput = {
   chaveId?: Prisma.SortOrder
   usuarioSolicitanteId?: Prisma.SortOrder
   usuarioDevolucaoId?: Prisma.SortOrder
-  operadorId?: Prisma.SortOrder
+  operadorSolicitacaoId?: Prisma.SortOrder
+  operadorDevolucaoId?: Prisma.SortOrder
   dataRetirada?: Prisma.SortOrder
   dataRetorno?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -466,7 +489,8 @@ export type EmprestimoMinOrderByAggregateInput = {
   chaveId?: Prisma.SortOrder
   usuarioSolicitanteId?: Prisma.SortOrder
   usuarioDevolucaoId?: Prisma.SortOrder
-  operadorId?: Prisma.SortOrder
+  operadorSolicitacaoId?: Prisma.SortOrder
+  operadorDevolucaoId?: Prisma.SortOrder
   dataRetirada?: Prisma.SortOrder
   dataRetorno?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -476,45 +500,87 @@ export type EmprestimoMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type EmprestimoCreateNestedManyWithoutOperadorInput = {
-  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[]
-  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[]
-  createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope
+export type EmprestimoCreateNestedManyWithoutOperadorSolicitacaoInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput> | Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorSolicitacaoInputEnvelope
   connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
 }
 
-export type EmprestimoUncheckedCreateNestedManyWithoutOperadorInput = {
-  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[]
-  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[]
-  createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope
+export type EmprestimoCreateNestedManyWithoutOperadorDevolucaoInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput> | Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorDevolucaoInputEnvelope
   connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
 }
 
-export type EmprestimoUpdateManyWithoutOperadorNestedInput = {
-  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[]
-  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[]
-  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput[]
-  createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope
+export type EmprestimoUncheckedCreateNestedManyWithoutOperadorSolicitacaoInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput> | Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorSolicitacaoInputEnvelope
+  connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+}
+
+export type EmprestimoUncheckedCreateNestedManyWithoutOperadorDevolucaoInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput> | Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorDevolucaoInputEnvelope
+  connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+}
+
+export type EmprestimoUpdateManyWithoutOperadorSolicitacaoNestedInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput> | Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput[]
+  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorSolicitacaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorSolicitacaoInputEnvelope
   set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
-  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput[]
-  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput[]
+  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorSolicitacaoInput[]
+  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorSolicitacaoInput[]
   deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[]
 }
 
-export type EmprestimoUncheckedUpdateManyWithoutOperadorNestedInput = {
-  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput> | Prisma.EmprestimoCreateWithoutOperadorInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorInput[]
-  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorInput[]
-  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorInput[]
-  createMany?: Prisma.EmprestimoCreateManyOperadorInputEnvelope
+export type EmprestimoUpdateManyWithoutOperadorDevolucaoNestedInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput> | Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput[]
+  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorDevolucaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorDevolucaoInputEnvelope
   set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
   connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
-  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorInput[]
-  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorInput[]
+  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorDevolucaoInput[]
+  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorDevolucaoInput[]
+  deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[]
+}
+
+export type EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoNestedInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput> | Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput[]
+  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorSolicitacaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorSolicitacaoInputEnvelope
+  set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorSolicitacaoInput[]
+  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorSolicitacaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorSolicitacaoInput[]
+  deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[]
+}
+
+export type EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoNestedInput = {
+  create?: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput> | Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput[] | Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput[]
+  connectOrCreate?: Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput | Prisma.EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput[]
+  upsert?: Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpsertWithWhereUniqueWithoutOperadorDevolucaoInput[]
+  createMany?: Prisma.EmprestimoCreateManyOperadorDevolucaoInputEnvelope
+  set?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  disconnect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  delete?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  connect?: Prisma.EmprestimoWhereUniqueInput | Prisma.EmprestimoWhereUniqueInput[]
+  update?: Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpdateWithWhereUniqueWithoutOperadorDevolucaoInput[]
+  updateMany?: Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorDevolucaoInput | Prisma.EmprestimoUpdateManyWithWhereWithoutOperadorDevolucaoInput[]
   deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[]
 }
 
@@ -652,7 +718,7 @@ export type EmprestimoUncheckedUpdateManyWithoutChaveNestedInput = {
   deleteMany?: Prisma.EmprestimoScalarWhereInput | Prisma.EmprestimoScalarWhereInput[]
 }
 
-export type EmprestimoCreateWithoutOperadorInput = {
+export type EmprestimoCreateWithoutOperadorSolicitacaoInput = {
   id: string
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
@@ -664,13 +730,15 @@ export type EmprestimoCreateWithoutOperadorInput = {
   Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput
   UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput
   UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput
+  OperadorDevolucao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput
 }
 
-export type EmprestimoUncheckedCreateWithoutOperadorInput = {
+export type EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput = {
   id: string
   chaveId: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -680,30 +748,70 @@ export type EmprestimoUncheckedCreateWithoutOperadorInput = {
   updatedAt?: Date | string
 }
 
-export type EmprestimoCreateOrConnectWithoutOperadorInput = {
+export type EmprestimoCreateOrConnectWithoutOperadorSolicitacaoInput = {
   where: Prisma.EmprestimoWhereUniqueInput
-  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput>
+  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput>
 }
 
-export type EmprestimoCreateManyOperadorInputEnvelope = {
-  data: Prisma.EmprestimoCreateManyOperadorInput | Prisma.EmprestimoCreateManyOperadorInput[]
+export type EmprestimoCreateManyOperadorSolicitacaoInputEnvelope = {
+  data: Prisma.EmprestimoCreateManyOperadorSolicitacaoInput | Prisma.EmprestimoCreateManyOperadorSolicitacaoInput[]
   skipDuplicates?: boolean
 }
 
-export type EmprestimoUpsertWithWhereUniqueWithoutOperadorInput = {
-  where: Prisma.EmprestimoWhereUniqueInput
-  update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorInput>
-  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorInput>
+export type EmprestimoCreateWithoutOperadorDevolucaoInput = {
+  id: string
+  dataRetirada: Date | string
+  dataRetorno?: Date | string | null
+  status: $Enums.Status
+  tipo?: $Enums.TipoEmprestimo
+  justificativa?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput
+  UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput
+  UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput
+  OperadorSolicitacao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
 }
 
-export type EmprestimoUpdateWithWhereUniqueWithoutOperadorInput = {
-  where: Prisma.EmprestimoWhereUniqueInput
-  data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorInput>
+export type EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput = {
+  id: string
+  chaveId: string
+  usuarioSolicitanteId: string
+  usuarioDevolucaoId?: string | null
+  operadorSolicitacaoId?: string | null
+  dataRetirada: Date | string
+  dataRetorno?: Date | string | null
+  status: $Enums.Status
+  tipo?: $Enums.TipoEmprestimo
+  justificativa?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type EmprestimoUpdateManyWithWhereWithoutOperadorInput = {
+export type EmprestimoCreateOrConnectWithoutOperadorDevolucaoInput = {
+  where: Prisma.EmprestimoWhereUniqueInput
+  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput>
+}
+
+export type EmprestimoCreateManyOperadorDevolucaoInputEnvelope = {
+  data: Prisma.EmprestimoCreateManyOperadorDevolucaoInput | Prisma.EmprestimoCreateManyOperadorDevolucaoInput[]
+  skipDuplicates?: boolean
+}
+
+export type EmprestimoUpsertWithWhereUniqueWithoutOperadorSolicitacaoInput = {
+  where: Prisma.EmprestimoWhereUniqueInput
+  update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorSolicitacaoInput>
+  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorSolicitacaoInput>
+}
+
+export type EmprestimoUpdateWithWhereUniqueWithoutOperadorSolicitacaoInput = {
+  where: Prisma.EmprestimoWhereUniqueInput
+  data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorSolicitacaoInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorSolicitacaoInput>
+}
+
+export type EmprestimoUpdateManyWithWhereWithoutOperadorSolicitacaoInput = {
   where: Prisma.EmprestimoScalarWhereInput
-  data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorInput>
+  data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoInput>
 }
 
 export type EmprestimoScalarWhereInput = {
@@ -714,7 +822,8 @@ export type EmprestimoScalarWhereInput = {
   chaveId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioSolicitanteId?: Prisma.StringFilter<"Emprestimo"> | string
   usuarioDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
-  operadorId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorSolicitacaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
+  operadorDevolucaoId?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
   dataRetirada?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string
   dataRetorno?: Prisma.DateTimeNullableFilter<"Emprestimo"> | Date | string | null
   status?: Prisma.EnumStatusFilter<"Emprestimo"> | $Enums.Status
@@ -722,6 +831,22 @@ export type EmprestimoScalarWhereInput = {
   justificativa?: Prisma.StringNullableFilter<"Emprestimo"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Emprestimo"> | Date | string
+}
+
+export type EmprestimoUpsertWithWhereUniqueWithoutOperadorDevolucaoInput = {
+  where: Prisma.EmprestimoWhereUniqueInput
+  update: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorDevolucaoInput>
+  create: Prisma.XOR<Prisma.EmprestimoCreateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedCreateWithoutOperadorDevolucaoInput>
+}
+
+export type EmprestimoUpdateWithWhereUniqueWithoutOperadorDevolucaoInput = {
+  where: Prisma.EmprestimoWhereUniqueInput
+  data: Prisma.XOR<Prisma.EmprestimoUpdateWithoutOperadorDevolucaoInput, Prisma.EmprestimoUncheckedUpdateWithoutOperadorDevolucaoInput>
+}
+
+export type EmprestimoUpdateManyWithWhereWithoutOperadorDevolucaoInput = {
+  where: Prisma.EmprestimoScalarWhereInput
+  data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoInput>
 }
 
 export type EmprestimoCreateWithoutUsuarioSolicitanteInput = {
@@ -735,14 +860,16 @@ export type EmprestimoCreateWithoutUsuarioSolicitanteInput = {
   updatedAt?: Date | string
   Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput
   UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput
-  Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorSolicitacao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorDevolucao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput
 }
 
 export type EmprestimoUncheckedCreateWithoutUsuarioSolicitanteInput = {
   id: string
   chaveId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -773,14 +900,16 @@ export type EmprestimoCreateWithoutUsuarioDevolucaoInput = {
   updatedAt?: Date | string
   Chave: Prisma.ChaveCreateNestedOneWithoutEmprestimoInput
   UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput
-  Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorSolicitacao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorDevolucao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput
 }
 
 export type EmprestimoUncheckedCreateWithoutUsuarioDevolucaoInput = {
   id: string
   chaveId: string
   usuarioSolicitanteId: string
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -843,14 +972,16 @@ export type EmprestimoCreateWithoutChaveInput = {
   updatedAt?: Date | string
   UsuarioSolicitante: Prisma.UsuariosCreateNestedOneWithoutEmprestimosSolicitadosInput
   UsuarioDevolucao?: Prisma.UsuariosCreateNestedOneWithoutEmprestimosDevolvidosInput
-  Operador?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorSolicitacao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosGeradosInput
+  OperadorDevolucao?: Prisma.OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput
 }
 
 export type EmprestimoUncheckedCreateWithoutChaveInput = {
   id: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -886,11 +1017,12 @@ export type EmprestimoUpdateManyWithWhereWithoutChaveInput = {
   data: Prisma.XOR<Prisma.EmprestimoUpdateManyMutationInput, Prisma.EmprestimoUncheckedUpdateManyWithoutChaveInput>
 }
 
-export type EmprestimoCreateManyOperadorInput = {
+export type EmprestimoCreateManyOperadorSolicitacaoInput = {
   id: string
   chaveId: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -900,7 +1032,22 @@ export type EmprestimoCreateManyOperadorInput = {
   updatedAt?: Date | string
 }
 
-export type EmprestimoUpdateWithoutOperadorInput = {
+export type EmprestimoCreateManyOperadorDevolucaoInput = {
+  id: string
+  chaveId: string
+  usuarioSolicitanteId: string
+  usuarioDevolucaoId?: string | null
+  operadorSolicitacaoId?: string | null
+  dataRetirada: Date | string
+  dataRetorno?: Date | string | null
+  status: $Enums.Status
+  tipo?: $Enums.TipoEmprestimo
+  justificativa?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EmprestimoUpdateWithoutOperadorSolicitacaoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -912,13 +1059,15 @@ export type EmprestimoUpdateWithoutOperadorInput = {
   Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput
   UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput
   UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput
+  OperadorDevolucao?: Prisma.OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput
 }
 
-export type EmprestimoUncheckedUpdateWithoutOperadorInput = {
+export type EmprestimoUncheckedUpdateWithoutOperadorSolicitacaoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -928,11 +1077,57 @@ export type EmprestimoUncheckedUpdateWithoutOperadorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type EmprestimoUncheckedUpdateManyWithoutOperadorInput = {
+export type EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo
+  justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EmprestimoUpdateWithoutOperadorDevolucaoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo
+  justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput
+  UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput
+  UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput
+  OperadorSolicitacao?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+}
+
+export type EmprestimoUncheckedUpdateWithoutOperadorDevolucaoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  chaveId?: Prisma.StringFieldUpdateOperationsInput | string
+  usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
+  usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tipo?: Prisma.EnumTipoEmprestimoFieldUpdateOperationsInput | $Enums.TipoEmprestimo
+  justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  chaveId?: Prisma.StringFieldUpdateOperationsInput | string
+  usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
+  usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -946,7 +1141,8 @@ export type EmprestimoCreateManyUsuarioSolicitanteInput = {
   id: string
   chaveId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -960,7 +1156,8 @@ export type EmprestimoCreateManyUsuarioDevolucaoInput = {
   id: string
   chaveId: string
   usuarioSolicitanteId: string
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -981,14 +1178,16 @@ export type EmprestimoUpdateWithoutUsuarioSolicitanteInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput
   UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput
-  Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorSolicitacao?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorDevolucao?: Prisma.OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput
 }
 
 export type EmprestimoUncheckedUpdateWithoutUsuarioSolicitanteInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1002,7 +1201,8 @@ export type EmprestimoUncheckedUpdateManyWithoutUsuarioSolicitanteInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1023,14 +1223,16 @@ export type EmprestimoUpdateWithoutUsuarioDevolucaoInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Chave?: Prisma.ChaveUpdateOneRequiredWithoutEmprestimoNestedInput
   UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput
-  Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorSolicitacao?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorDevolucao?: Prisma.OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput
 }
 
 export type EmprestimoUncheckedUpdateWithoutUsuarioDevolucaoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1044,7 +1246,8 @@ export type EmprestimoUncheckedUpdateManyWithoutUsuarioDevolucaoInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   chaveId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1058,7 +1261,8 @@ export type EmprestimoCreateManyChaveInput = {
   id: string
   usuarioSolicitanteId: string
   usuarioDevolucaoId?: string | null
-  operadorId?: string | null
+  operadorSolicitacaoId?: string | null
+  operadorDevolucaoId?: string | null
   dataRetirada: Date | string
   dataRetorno?: Date | string | null
   status: $Enums.Status
@@ -1079,14 +1283,16 @@ export type EmprestimoUpdateWithoutChaveInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UsuarioSolicitante?: Prisma.UsuariosUpdateOneRequiredWithoutEmprestimosSolicitadosNestedInput
   UsuarioDevolucao?: Prisma.UsuariosUpdateOneWithoutEmprestimosDevolvidosNestedInput
-  Operador?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorSolicitacao?: Prisma.OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput
+  OperadorDevolucao?: Prisma.OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput
 }
 
 export type EmprestimoUncheckedUpdateWithoutChaveInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1100,7 +1306,8 @@ export type EmprestimoUncheckedUpdateManyWithoutChaveInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioSolicitanteId?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  operadorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorSolicitacaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  operadorDevolucaoId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dataRetirada?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataRetorno?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1117,7 +1324,8 @@ export type EmprestimoSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   chaveId?: boolean
   usuarioSolicitanteId?: boolean
   usuarioDevolucaoId?: boolean
-  operadorId?: boolean
+  operadorSolicitacaoId?: boolean
+  operadorDevolucaoId?: boolean
   dataRetirada?: boolean
   dataRetorno?: boolean
   status?: boolean
@@ -1128,7 +1336,8 @@ export type EmprestimoSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }, ExtArgs["result"]["emprestimo"]>
 
 export type EmprestimoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1136,7 +1345,8 @@ export type EmprestimoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   chaveId?: boolean
   usuarioSolicitanteId?: boolean
   usuarioDevolucaoId?: boolean
-  operadorId?: boolean
+  operadorSolicitacaoId?: boolean
+  operadorDevolucaoId?: boolean
   dataRetirada?: boolean
   dataRetorno?: boolean
   status?: boolean
@@ -1147,7 +1357,8 @@ export type EmprestimoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }, ExtArgs["result"]["emprestimo"]>
 
 export type EmprestimoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1155,7 +1366,8 @@ export type EmprestimoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   chaveId?: boolean
   usuarioSolicitanteId?: boolean
   usuarioDevolucaoId?: boolean
-  operadorId?: boolean
+  operadorSolicitacaoId?: boolean
+  operadorDevolucaoId?: boolean
   dataRetirada?: boolean
   dataRetorno?: boolean
   status?: boolean
@@ -1166,7 +1378,8 @@ export type EmprestimoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }, ExtArgs["result"]["emprestimo"]>
 
 export type EmprestimoSelectScalar = {
@@ -1174,7 +1387,8 @@ export type EmprestimoSelectScalar = {
   chaveId?: boolean
   usuarioSolicitanteId?: boolean
   usuarioDevolucaoId?: boolean
-  operadorId?: boolean
+  operadorSolicitacaoId?: boolean
+  operadorDevolucaoId?: boolean
   dataRetirada?: boolean
   dataRetorno?: boolean
   status?: boolean
@@ -1184,24 +1398,27 @@ export type EmprestimoSelectScalar = {
   updatedAt?: boolean
 }
 
-export type EmprestimoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "chaveId" | "usuarioSolicitanteId" | "usuarioDevolucaoId" | "operadorId" | "dataRetirada" | "dataRetorno" | "status" | "tipo" | "justificativa" | "createdAt" | "updatedAt", ExtArgs["result"]["emprestimo"]>
+export type EmprestimoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "chaveId" | "usuarioSolicitanteId" | "usuarioDevolucaoId" | "operadorSolicitacaoId" | "operadorDevolucaoId" | "dataRetirada" | "dataRetorno" | "status" | "tipo" | "justificativa" | "createdAt" | "updatedAt", ExtArgs["result"]["emprestimo"]>
 export type EmprestimoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }
 export type EmprestimoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }
 export type EmprestimoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Chave?: boolean | Prisma.ChaveDefaultArgs<ExtArgs>
   UsuarioSolicitante?: boolean | Prisma.UsuariosDefaultArgs<ExtArgs>
   UsuarioDevolucao?: boolean | Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>
-  Operador?: boolean | Prisma.Emprestimo$OperadorArgs<ExtArgs>
+  OperadorSolicitacao?: boolean | Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>
+  OperadorDevolucao?: boolean | Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>
 }
 
 export type $EmprestimoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1210,14 +1427,16 @@ export type $EmprestimoPayload<ExtArgs extends runtime.Types.Extensions.Internal
     Chave: Prisma.$ChavePayload<ExtArgs>
     UsuarioSolicitante: Prisma.$UsuariosPayload<ExtArgs>
     UsuarioDevolucao: Prisma.$UsuariosPayload<ExtArgs> | null
-    Operador: Prisma.$OperadoresPayload<ExtArgs> | null
+    OperadorSolicitacao: Prisma.$OperadoresPayload<ExtArgs> | null
+    OperadorDevolucao: Prisma.$OperadoresPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     chaveId: string
     usuarioSolicitanteId: string
     usuarioDevolucaoId: string | null
-    operadorId: string | null
+    operadorSolicitacaoId: string | null
+    operadorDevolucaoId: string | null
     dataRetirada: Date
     dataRetorno: Date | null
     status: $Enums.Status
@@ -1622,7 +1841,8 @@ export interface Prisma__EmprestimoClient<T, Null = never, ExtArgs extends runti
   Chave<T extends Prisma.ChaveDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ChaveDefaultArgs<ExtArgs>>): Prisma.Prisma__ChaveClient<runtime.Types.Result.GetResult<Prisma.$ChavePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   UsuarioSolicitante<T extends Prisma.UsuariosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuariosDefaultArgs<ExtArgs>>): Prisma.Prisma__UsuariosClient<runtime.Types.Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   UsuarioDevolucao<T extends Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$UsuarioDevolucaoArgs<ExtArgs>>): Prisma.Prisma__UsuariosClient<runtime.Types.Result.GetResult<Prisma.$UsuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  Operador<T extends Prisma.Emprestimo$OperadorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$OperadorArgs<ExtArgs>>): Prisma.Prisma__OperadoresClient<runtime.Types.Result.GetResult<Prisma.$OperadoresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  OperadorSolicitacao<T extends Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$OperadorSolicitacaoArgs<ExtArgs>>): Prisma.Prisma__OperadoresClient<runtime.Types.Result.GetResult<Prisma.$OperadoresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  OperadorDevolucao<T extends Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Emprestimo$OperadorDevolucaoArgs<ExtArgs>>): Prisma.Prisma__OperadoresClient<runtime.Types.Result.GetResult<Prisma.$OperadoresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1656,7 +1876,8 @@ export interface EmprestimoFieldRefs {
   readonly chaveId: Prisma.FieldRef<"Emprestimo", 'String'>
   readonly usuarioSolicitanteId: Prisma.FieldRef<"Emprestimo", 'String'>
   readonly usuarioDevolucaoId: Prisma.FieldRef<"Emprestimo", 'String'>
-  readonly operadorId: Prisma.FieldRef<"Emprestimo", 'String'>
+  readonly operadorSolicitacaoId: Prisma.FieldRef<"Emprestimo", 'String'>
+  readonly operadorDevolucaoId: Prisma.FieldRef<"Emprestimo", 'String'>
   readonly dataRetirada: Prisma.FieldRef<"Emprestimo", 'DateTime'>
   readonly dataRetorno: Prisma.FieldRef<"Emprestimo", 'DateTime'>
   readonly status: Prisma.FieldRef<"Emprestimo", 'Status'>
@@ -2079,9 +2300,28 @@ export type Emprestimo$UsuarioDevolucaoArgs<ExtArgs extends runtime.Types.Extens
 }
 
 /**
- * Emprestimo.Operador
+ * Emprestimo.OperadorSolicitacao
  */
-export type Emprestimo$OperadorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Emprestimo$OperadorSolicitacaoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Operadores
+   */
+  select?: Prisma.OperadoresSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Operadores
+   */
+  omit?: Prisma.OperadoresOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OperadoresInclude<ExtArgs> | null
+  where?: Prisma.OperadoresWhereInput
+}
+
+/**
+ * Emprestimo.OperadorDevolucao
+ */
+export type Emprestimo$OperadorDevolucaoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Operadores
    */

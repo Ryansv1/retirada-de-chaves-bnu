@@ -25,7 +25,8 @@ model Operadores {
   sessions      Session[]
   accounts      Account[]
 
-  EmprestimosGerados Emprestimo[]
+  EmprestimosGerados  Emprestimo[] @relation("OperadorSolicitacao")
+  EmprestimosBaixados Emprestimo[] @relation("OperadorDevolucao")
 
   role String?
 
@@ -91,30 +92,30 @@ model Verification {
 }
 
 model Emprestimo {
-  id                   String    @id
-  chaveId              String
-  usuarioSolicitanteId String
-  usuarioDevolucaoId   String?
-  operadorId           String?
-  dataRetirada         DateTime
-  dataRetorno          DateTime?
-  status               Status
+  id                    String    @id
+  chaveId               String
+  usuarioSolicitanteId  String
+  usuarioDevolucaoId    String?
+  operadorSolicitacaoId String?
+  operadorDevolucaoId   String?
+  dataRetirada          DateTime
+  dataRetorno           DateTime?
+  status                Status
 
   tipo          TipoEmprestimo @default(NORMAL)
   justificativa String? // Obrigatório somente quando for administrativo
 
-  Chave              Chave       @relation(fields: [chaveId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  UsuarioSolicitante Usuarios    @relation("Solicitados", fields: [usuarioSolicitanteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  UsuarioDevolucao   Usuarios?   @relation("Devolvidos", fields: [usuarioDevolucaoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  Operador           Operadores? @relation(fields: [operadorId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  Chave               Chave       @relation(fields: [chaveId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  UsuarioSolicitante  Usuarios    @relation("Solicitados", fields: [usuarioSolicitanteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  UsuarioDevolucao    Usuarios?   @relation("Devolvidos", fields: [usuarioDevolucaoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  OperadorSolicitacao Operadores? @relation("OperadorSolicitacao", fields: [operadorSolicitacaoId], references: [id])
+  OperadorDevolucao   Operadores? @relation("OperadorDevolucao", fields: [operadorDevolucaoId], references: [id])
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
 
   @@index([chaveId])
   @@index([usuarioDevolucaoId])
   @@index([usuarioSolicitanteId])
-  @@index([operadorId])
   @@map("emprestimos")
 }
 

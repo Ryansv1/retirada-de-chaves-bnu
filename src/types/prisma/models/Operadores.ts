@@ -208,6 +208,7 @@ export type OperadoresWhereInput = {
   sessions?: Prisma.SessionListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   EmprestimosGerados?: Prisma.EmprestimoListRelationFilter
+  EmprestimosBaixados?: Prisma.EmprestimoListRelationFilter
 }
 
 export type OperadoresOrderByWithRelationInput = {
@@ -222,6 +223,7 @@ export type OperadoresOrderByWithRelationInput = {
   sessions?: Prisma.SessionOrderByRelationAggregateInput
   accounts?: Prisma.AccountOrderByRelationAggregateInput
   EmprestimosGerados?: Prisma.EmprestimoOrderByRelationAggregateInput
+  EmprestimosBaixados?: Prisma.EmprestimoOrderByRelationAggregateInput
 }
 
 export type OperadoresWhereUniqueInput = Prisma.AtLeast<{
@@ -239,6 +241,7 @@ export type OperadoresWhereUniqueInput = Prisma.AtLeast<{
   sessions?: Prisma.SessionListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   EmprestimosGerados?: Prisma.EmprestimoListRelationFilter
+  EmprestimosBaixados?: Prisma.EmprestimoListRelationFilter
 }, "id" | "email">
 
 export type OperadoresOrderByWithAggregationInput = {
@@ -280,7 +283,8 @@ export type OperadoresCreateInput = {
   role?: string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresUncheckedCreateInput = {
@@ -294,7 +298,8 @@ export type OperadoresUncheckedCreateInput = {
   role?: string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresUpdateInput = {
@@ -308,7 +313,8 @@ export type OperadoresUpdateInput = {
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresUncheckedUpdateInput = {
@@ -322,7 +328,8 @@ export type OperadoresUncheckedUpdateInput = {
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresCreateManyInput = {
@@ -451,6 +458,12 @@ export type OperadoresCreateNestedOneWithoutEmprestimosGeradosInput = {
   connect?: Prisma.OperadoresWhereUniqueInput
 }
 
+export type OperadoresCreateNestedOneWithoutEmprestimosBaixadosInput = {
+  create?: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosBaixadosInput>
+  connectOrCreate?: Prisma.OperadoresCreateOrConnectWithoutEmprestimosBaixadosInput
+  connect?: Prisma.OperadoresWhereUniqueInput
+}
+
 export type OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput = {
   create?: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosGeradosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosGeradosInput>
   connectOrCreate?: Prisma.OperadoresCreateOrConnectWithoutEmprestimosGeradosInput
@@ -459,6 +472,16 @@ export type OperadoresUpdateOneWithoutEmprestimosGeradosNestedInput = {
   delete?: Prisma.OperadoresWhereInput | boolean
   connect?: Prisma.OperadoresWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.OperadoresUpdateToOneWithWhereWithoutEmprestimosGeradosInput, Prisma.OperadoresUpdateWithoutEmprestimosGeradosInput>, Prisma.OperadoresUncheckedUpdateWithoutEmprestimosGeradosInput>
+}
+
+export type OperadoresUpdateOneWithoutEmprestimosBaixadosNestedInput = {
+  create?: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosBaixadosInput>
+  connectOrCreate?: Prisma.OperadoresCreateOrConnectWithoutEmprestimosBaixadosInput
+  upsert?: Prisma.OperadoresUpsertWithoutEmprestimosBaixadosInput
+  disconnect?: Prisma.OperadoresWhereInput | boolean
+  delete?: Prisma.OperadoresWhereInput | boolean
+  connect?: Prisma.OperadoresWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OperadoresUpdateToOneWithWhereWithoutEmprestimosBaixadosInput, Prisma.OperadoresUpdateWithoutEmprestimosBaixadosInput>, Prisma.OperadoresUncheckedUpdateWithoutEmprestimosBaixadosInput>
 }
 
 export type OperadoresCreateWithoutSessionsInput = {
@@ -471,7 +494,8 @@ export type OperadoresCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   role?: string | null
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresUncheckedCreateWithoutSessionsInput = {
@@ -484,7 +508,8 @@ export type OperadoresUncheckedCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   role?: string | null
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresCreateOrConnectWithoutSessionsInput = {
@@ -513,7 +538,8 @@ export type OperadoresUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresUncheckedUpdateWithoutSessionsInput = {
@@ -526,7 +552,8 @@ export type OperadoresUncheckedUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresCreateWithoutAccountsInput = {
@@ -539,7 +566,8 @@ export type OperadoresCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   role?: string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresUncheckedCreateWithoutAccountsInput = {
@@ -552,7 +580,8 @@ export type OperadoresUncheckedCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   role?: string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorSolicitacaoInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresCreateOrConnectWithoutAccountsInput = {
@@ -581,7 +610,8 @@ export type OperadoresUpdateWithoutAccountsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresUncheckedUpdateWithoutAccountsInput = {
@@ -594,7 +624,8 @@ export type OperadoresUncheckedUpdateWithoutAccountsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
-  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresCreateWithoutEmprestimosGeradosInput = {
@@ -608,6 +639,7 @@ export type OperadoresCreateWithoutEmprestimosGeradosInput = {
   role?: string | null
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  EmprestimosBaixados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresUncheckedCreateWithoutEmprestimosGeradosInput = {
@@ -621,11 +653,45 @@ export type OperadoresUncheckedCreateWithoutEmprestimosGeradosInput = {
   role?: string | null
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorDevolucaoInput
 }
 
 export type OperadoresCreateOrConnectWithoutEmprestimosGeradosInput = {
   where: Prisma.OperadoresWhereUniqueInput
   create: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosGeradosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosGeradosInput>
+}
+
+export type OperadoresCreateWithoutEmprestimosBaixadosInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  role?: string | null
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  EmprestimosGerados?: Prisma.EmprestimoCreateNestedManyWithoutOperadorSolicitacaoInput
+}
+
+export type OperadoresUncheckedCreateWithoutEmprestimosBaixadosInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  role?: string | null
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedCreateNestedManyWithoutOperadorSolicitacaoInput
+}
+
+export type OperadoresCreateOrConnectWithoutEmprestimosBaixadosInput = {
+  where: Prisma.OperadoresWhereUniqueInput
+  create: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosBaixadosInput>
 }
 
 export type OperadoresUpsertWithoutEmprestimosGeradosInput = {
@@ -650,6 +716,7 @@ export type OperadoresUpdateWithoutEmprestimosGeradosInput = {
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUpdateManyWithoutOperadorDevolucaoNestedInput
 }
 
 export type OperadoresUncheckedUpdateWithoutEmprestimosGeradosInput = {
@@ -663,6 +730,46 @@ export type OperadoresUncheckedUpdateWithoutEmprestimosGeradosInput = {
   role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  EmprestimosBaixados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorDevolucaoNestedInput
+}
+
+export type OperadoresUpsertWithoutEmprestimosBaixadosInput = {
+  update: Prisma.XOR<Prisma.OperadoresUpdateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedUpdateWithoutEmprestimosBaixadosInput>
+  create: Prisma.XOR<Prisma.OperadoresCreateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedCreateWithoutEmprestimosBaixadosInput>
+  where?: Prisma.OperadoresWhereInput
+}
+
+export type OperadoresUpdateToOneWithWhereWithoutEmprestimosBaixadosInput = {
+  where?: Prisma.OperadoresWhereInput
+  data: Prisma.XOR<Prisma.OperadoresUpdateWithoutEmprestimosBaixadosInput, Prisma.OperadoresUncheckedUpdateWithoutEmprestimosBaixadosInput>
+}
+
+export type OperadoresUpdateWithoutEmprestimosBaixadosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUpdateManyWithoutOperadorSolicitacaoNestedInput
+}
+
+export type OperadoresUncheckedUpdateWithoutEmprestimosBaixadosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  role?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  EmprestimosGerados?: Prisma.EmprestimoUncheckedUpdateManyWithoutOperadorSolicitacaoNestedInput
 }
 
 
@@ -674,12 +781,14 @@ export type OperadoresCountOutputType = {
   sessions: number
   accounts: number
   EmprestimosGerados: number
+  EmprestimosBaixados: number
 }
 
 export type OperadoresCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sessions?: boolean | OperadoresCountOutputTypeCountSessionsArgs
   accounts?: boolean | OperadoresCountOutputTypeCountAccountsArgs
   EmprestimosGerados?: boolean | OperadoresCountOutputTypeCountEmprestimosGeradosArgs
+  EmprestimosBaixados?: boolean | OperadoresCountOutputTypeCountEmprestimosBaixadosArgs
 }
 
 /**
@@ -713,6 +822,13 @@ export type OperadoresCountOutputTypeCountEmprestimosGeradosArgs<ExtArgs extends
   where?: Prisma.EmprestimoWhereInput
 }
 
+/**
+ * OperadoresCountOutputType without action
+ */
+export type OperadoresCountOutputTypeCountEmprestimosBaixadosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EmprestimoWhereInput
+}
+
 
 export type OperadoresSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -726,6 +842,7 @@ export type OperadoresSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   sessions?: boolean | Prisma.Operadores$sessionsArgs<ExtArgs>
   accounts?: boolean | Prisma.Operadores$accountsArgs<ExtArgs>
   EmprestimosGerados?: boolean | Prisma.Operadores$EmprestimosGeradosArgs<ExtArgs>
+  EmprestimosBaixados?: boolean | Prisma.Operadores$EmprestimosBaixadosArgs<ExtArgs>
   _count?: boolean | Prisma.OperadoresCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["operadores"]>
 
@@ -767,6 +884,7 @@ export type OperadoresInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   sessions?: boolean | Prisma.Operadores$sessionsArgs<ExtArgs>
   accounts?: boolean | Prisma.Operadores$accountsArgs<ExtArgs>
   EmprestimosGerados?: boolean | Prisma.Operadores$EmprestimosGeradosArgs<ExtArgs>
+  EmprestimosBaixados?: boolean | Prisma.Operadores$EmprestimosBaixadosArgs<ExtArgs>
   _count?: boolean | Prisma.OperadoresCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OperadoresIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -778,6 +896,7 @@ export type $OperadoresPayload<ExtArgs extends runtime.Types.Extensions.Internal
     sessions: Prisma.$SessionPayload<ExtArgs>[]
     accounts: Prisma.$AccountPayload<ExtArgs>[]
     EmprestimosGerados: Prisma.$EmprestimoPayload<ExtArgs>[]
+    EmprestimosBaixados: Prisma.$EmprestimoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1185,6 +1304,7 @@ export interface Prisma__OperadoresClient<T, Null = never, ExtArgs extends runti
   sessions<T extends Prisma.Operadores$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Operadores$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   accounts<T extends Prisma.Operadores$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Operadores$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   EmprestimosGerados<T extends Prisma.Operadores$EmprestimosGeradosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Operadores$EmprestimosGeradosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  EmprestimosBaixados<T extends Prisma.Operadores$EmprestimosBaixadosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Operadores$EmprestimosBaixadosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmprestimoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1661,6 +1781,30 @@ export type Operadores$accountsArgs<ExtArgs extends runtime.Types.Extensions.Int
  * Operadores.EmprestimosGerados
  */
 export type Operadores$EmprestimosGeradosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Emprestimo
+   */
+  select?: Prisma.EmprestimoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Emprestimo
+   */
+  omit?: Prisma.EmprestimoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmprestimoInclude<ExtArgs> | null
+  where?: Prisma.EmprestimoWhereInput
+  orderBy?: Prisma.EmprestimoOrderByWithRelationInput | Prisma.EmprestimoOrderByWithRelationInput[]
+  cursor?: Prisma.EmprestimoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EmprestimoScalarFieldEnum | Prisma.EmprestimoScalarFieldEnum[]
+}
+
+/**
+ * Operadores.EmprestimosBaixados
+ */
+export type Operadores$EmprestimosBaixadosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Emprestimo
    */
