@@ -1,8 +1,41 @@
 image: docker:27-cli
 
 stages:
+  - validate_env
+  - migrate_seed
   - build
   - portainer
+
+validate_env:
+  stage: validate_env
+  image: alpine:latest
+  only:
+    - master
+    - main
+  script:
+    - |
+      apk add --no-cache grep
+      for var in $(grep -v -e '^#' -e '^$' .env.example | cut -d '=' -f 1); do
+        if ! printenv | grep -q "^${var}="; then
+          echo "Error: Environment variable $var is not set."
+          exit 1
+        fi
+      done
+      echo "Environment variables check passed."
+
+migrate_seed:
+  stage: migrate_seed
+  image: node:20-slim
+  only:
+    - master
+    - main
+  script:
+    - apt-get update && apt-get install -y openssl
+    - npm install -g pnpm
+    - pnpm install
+    - pnpm exec prisma migrate deploy
+    - pnpm exec prisma db seed
+
 ### BUILD
 build:
   stage: build
