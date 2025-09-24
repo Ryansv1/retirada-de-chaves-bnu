@@ -8,11 +8,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 export const auth = betterAuth({
   appName: 'Retirada de Chaves',
-  trustedOrigins: [
-    process.env.BETTER_AUTH_URL!,
-    process.env.CLIENT_URL!,
-    process.env.ADMIN_URL!,
-  ],
+  trustedOrigins: [process.env.BETTER_AUTH_URL!, process.env.CLIENT_URL!],
   basePath: 'api/v1/auth',
   secret: process.env.BETTER_AUTH_SECRET!,
   database: prismaAdapter(database, {

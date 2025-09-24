@@ -2,7 +2,9 @@ import { Ambiente, Armario, Usuarios } from '../src/types/prisma/client';
 import { v7 as uuidv7 } from 'uuid';
 import { PrismaClient } from '../src/types/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
+import { auth } from '../src/lib/auth';
 import 'dotenv/config';
+import bcrypt from 'bcryptjs';
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const database = new PrismaClient({ adapter });
@@ -2248,9 +2250,39 @@ async function main() {
     });
   }
   console.log('Usuários Criados.');
+
+  const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD!, 10);
+  await database.operadores.upsert({
+    where: {
+      email: process.env.ADMIN_EMAIL!,
+    },
+    update: {},
+    create: {
+      id: uuidv7(),
+      name: process.env.ADMIN_NAME!,
+      email: process.env.ADMIN_EMAIL!,
+      emailVerified: true,
+      role: 'ADMIN',
+      accounts: {
+        create: {
+          id: uuidv7(),
+          providerId: 'credential',
+          password: hashedPassword,
+          accountId: 'credential',
+        },
+      },
+    },
+  });
+  console.log('ADMIN criado.');
 }
 
-await main().then(() => {
-  console.warn('Seed finalizado.');
-  process.exit(0);
-});
+await main()
+  .then(() => {
+    console.warn('Seed finalizado.');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.warn('Erro!');
+    console.error(err);
+    process.exit(1);
+  });
