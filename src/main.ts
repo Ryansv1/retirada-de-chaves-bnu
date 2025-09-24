@@ -7,7 +7,7 @@ import multipart from './plugins/multipart.js';
 import cors from './plugins/cors.js';
 
 import { HTTPErrorHandler } from './utils/http.js';
-import { validatorCompiler } from 'fastify-type-provider-zod';
+import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
 
 import healthcheck from './routes/healthcheck.js';
 import Emprestimos from './routes/emprestimos.js';
@@ -32,7 +32,7 @@ export async function AppFactory() {
   });
 
   app.setValidatorCompiler(validatorCompiler);
-  // app.setSerializerCompiler(serializerCompiler);
+  app.setSerializerCompiler(serializerCompiler);
   app.setErrorHandler(async function (err, request, reply) {
     await HTTPErrorHandler(this, err, request, reply);
   });
