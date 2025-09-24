@@ -1,0 +1,33 @@
+# Ignorar dependências locais (serão reinstaladas no build)
+node_modules
+dist
+
+# Ambientes e arquivos sensíveis
+.env
+.env.*
+*.env
+
+# Configs locais
+.vscode
+*.log
+*.swp
+
+# Git
+.git
+.gitignore
+
+# Docker e Compose (se não precisa copiar isso pro container)
+docker-compose.yml
+.dockerignore
+
+# Arquivos de desenvolvimento/teste
+*.md
+*.http
+
+# Outras configs e cache
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.prettier*
+.eslint*
+*.tsbuildinfo
