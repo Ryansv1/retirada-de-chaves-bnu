@@ -10,6 +10,8 @@ RUN pnpm install
 
 COPY . .
 RUN pnpm run build
+CMD ["sh", "-c", "npm run db:seed"]
+
 
 # Etapa 2: produção
 FROM node:22 AS runner
@@ -22,4 +24,4 @@ RUN pnpm install --prod
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-CMD ["sh", "-c", "npm run db:deploy && npm run db:seed && npm run start"]
+CMD ["sh", "-c", "npm run start"]
