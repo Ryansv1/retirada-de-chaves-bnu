@@ -4,10 +4,10 @@ WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
 
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json package-lock.json ./
+RUN npm install
 
 COPY . .
-RUN yarn build
+RUN npm run build
 
 CMD ["sh", "-c", "npm run start"]
