@@ -1,0 +1,188 @@
+Sigla;Nome;Tipo de ambiente;Construção
+A.007;SERVIDOR ESPAÇO AUTOMAÇÃO;Sala técnica;SNO02-Bloco A - Laboratórios
+A.009;LABORATÓRIO DE ROBÓTICA AVANÇADA;Laboratório;SNO02-Bloco A - Laboratórios
+A.029;LAB3M - LABORATÓRIO DE MAGNETISMO E MATERIAIS MAGNÉTICOS;Laboratório;SNO02-Bloco A - Laboratórios
+A.021;LAFIF - LABORATÓRIO DE FIBRAS E FIAÇÃO;Laboratório;SNO02-Bloco A - Laboratórios
+A.022;LMCA – LABORATÓRIO MULTIUSUÁRIO DE CARACTERIZAÇÃO AVANÇADA;Laboratório;SNO02-Bloco A - Laboratórios
+A.E.001;LAVAÇÃO RU;Espaço de higienização;SNO03-Refeitório e Convivência
+A.E.002;COZINHA RU;Área de refeição / alimentação;SNO03-Refeitório e Convivência
+A.E.003;BUFFET SELF-SERVICE;Área de refeição / alimentação;SNO03-Refeitório e Convivência
+A.E.004;ESCRITÓRIO RU;Sala de departamento / administrativa;SNO03-Refeitório e Convivência
+A.E.006;CENTROS ACADÊMICOS;Sala multiuso;SNO03-Refeitório e Convivência
+A.E.007;EMPRESA JÚNIOR LICENCIATURA;Sala multiuso;SNO03-Refeitório e Convivência
+A001;BIBLIOTECA SETORIAL DO CAMPUS BLUMENAU;Biblioteca;BNU02-Bloco Acadêmico A - Salas de aula
+A001.1;ADMINISTRAÇÃO BIBLIOTECA;Sala de departamento / administrativa;BNU02-Bloco Acadêmico A - Salas de aula
+A001.3;AGENTE PATRIMONIAL;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A001.3.1;SALA DO SERVIDOR;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A002;SECRETARIA ACADÊMICA;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A003;ÁREA TÉCNICA ADMINISTRATIVA;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A004;SECRETARIA DE COORDENAÇÕES DE CURSO;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A005;DEPÓSITO LIMPEZA;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A101;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A102;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A103;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A104;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A105;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A106;SECRETARIA PÓS-GRADUAÇÃO;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A107;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A108;SALA DE ESTUDO DA PÓS-GRADUAÇÃO_1;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A110;SALA DE ESTUDO PÓS-GRADUAÇÃO_2;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A201;SALA DE CONVIVÊNCIA;Copa / Cozinha;BNU02-Bloco Acadêmico A - Salas de aula
+A202;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A203;NUPE - NÚCLEO PEDAGÓGICO;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A204;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A205;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A206;NAE - NÚCLEO ASSISTÊNCIA ESTUDANTIL;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A206.1;NAE - NÚCLEO ASSISTÊNCIA ESTUDANTIL;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A207;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A208;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A211;NUPE - ATENDIMENTO;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A213;COORDENAÇÃO DE ENGENHARIA TÊXTIL;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A301;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A302;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A303;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A304;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A305;LABCOP - LABORATÓRIO DE CONTROLE DE PROCESSOS;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A306;COORDENAÇÕES DE CURSOS LICENCIATURAS;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A307;CORREDOR ACESSO A307.1 E A301.2;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A307.1;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A307.2;SALA DE AULA;Sala de aula;BNU02-Bloco Acadêmico A - Salas de aula
+A310;COORDENAÇÕES DE CURSOS ENGENHARIAS;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+A401;ÁREA TÉCNICA TELHADO;(não identificado);BNU02-Bloco Acadêmico A - Salas de aula
+B.001;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.002;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.003;SECRETARIA ACADÊMICA E DE COLEGIADO DE CURSO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.004;LDPT - LÁBORATÓRIO DE DESENVOLVIMENTO DE PRODUTOS TÊXTEIS;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.005;SALA DE ATENDIMENTO;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.006;COORDENAÇÃO DE CURSOS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.007;COORDENAÇÃO DE CURSOS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.008;DEPÓSITO LIMPEZA;Depósito e afins;SNO04-Bloco B - Acadêmico e administrativo
+B.009;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.010;COORDENAÇÃO DE CURSOS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.011;COORDENAÇÃO DE CURSOS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.012;SALA DE APOIO - LIBRAS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.013.1;SALA DE AMAMENTAÇÃO 1;Sala multiuso;SNO04-Bloco B - Acadêmico e administrativo
+B.013.2;SALA DE AMAMENTAÇÃO 2;Sala multiuso;SNO04-Bloco B - Acadêmico e administrativo
+B.013.3;ÁREA DE APOIO - AMAMENTAÇÃO;Outros / Apoio;SNO04-Bloco B - Acadêmico e administrativo
+B.014;LABSIM - LABORATÓRIO DE SISTEMAS DIGITAIS E MICROPROCESSADORES;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.015;SECRETARIA ACADÊMICA E DE COLEGIADO DE CURSO;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.016;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.017;LAPRO II - LABORATÓRIO DE PROJETOS;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.018;SECRETARIA DE PÓS GRADUAÇÃO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.019;LABMAPE - LABORATÓRIO DE MANUFATURA ADITIVA E PROCESSOS ESPECIAIS;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.020;LABCID - LABORATÓRIO DE CIRCUITOS E SISTEMAS DIGITAIS;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.021;LABCOP - LABORATÓRIO DE CONTROLE E PROCESSOS;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.022;DEPÓSITO ALMOXARIFADO;Depósito e afins;SNO04-Bloco B - Acadêmico e administrativo
+B.101;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.102;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.103;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.104;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.105;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.106;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.107;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.108;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.109;NUPE - NÚCLEO PEDAGÓGICO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.110;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.111;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.112;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.113;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.114;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.115;SERVIDOR INFORMÁTICA;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.116;FOSSO DO ELEVADOR;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.201;LABINFO II - LABORATÓRIO DE INFORMÁTICA;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.202;LABINFO III - LABORATÓRIO DE INFORMÁTICA;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.203;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.204;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.205;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.206;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.207;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.208;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.209;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.210;SECRETARIA DE DEPARTAMENTOS;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.211;NUCLEO DE ASSISTÊNCIA ESTUDANTIL;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.212;BIBLIOTECA;Acervo / Arquivo;SNO04-Bloco B - Acadêmico e administrativo
+B.212.1;ADMINISTRAÇÃO BIBLIOTECA;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.212.2;SALA DE ESTUDOS 1;Sala multiuso;SNO04-Bloco B - Acadêmico e administrativo
+B.212.3;SALA DE ESTUDOS 2;Sala multiuso;SNO04-Bloco B - Acadêmico e administrativo
+B.212.4;SALA DE ESTUDOS 3;Sala multiuso;SNO04-Bloco B - Acadêmico e administrativo
+B.301;LABEX - LABORATÓRIO DE EXPRESSÃO GRÁFICA;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.302;SALA DE AULA;Sala de aula;SNO04-Bloco B - Acadêmico e administrativo
+B.303;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.304;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.305;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.306;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.307;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.308;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.309;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.310;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.311;DIREÇÃO GERAL;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.312;DIREÇÃO ADMINISTRATIVA;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.313;DIST - DIVISÃO DE INFRAESTRUTURA E SEGURANÇA DO TRABALHO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.314;ADMINISTRATIVO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.315;TECNOLOGIA DA INFORMAÇÃO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.315.1;MANUTENÇÃO DE TI;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.316;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.317;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.318;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.319;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.320;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.321;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.322;SALA DE PROFESSORES;Sala de professor;SNO04-Bloco B - Acadêmico e administrativo
+B.323;DEPÓSITO INFORMÁTICA;Depósito e afins;SNO04-Bloco B - Acadêmico e administrativo
+B.401;CASA DE MÁQUINAS;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.402;TELHADO - ÁREA EXTERNA;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.403;CAIXA D'ÁGUA / BARRILETE 1º PISO;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.404;CAIXA D'ÁGUA / BARRILETE 2º PISO;Sala técnica;SNO04-Bloco B - Acadêmico e administrativo
+B.S01;LABFIS - LABORATÓRIOS DE FÍSICA;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B.S01.1;SALA TÉCNICO;Sala de departamento / administrativa;SNO04-Bloco B - Acadêmico e administrativo
+B.S01.2;DEPÓSITO;Depósito e afins;SNO04-Bloco B - Acadêmico e administrativo
+B.S02;LEMA - LABORATÓRIO DE ENSINO MATEMÁTICA;Laboratório;SNO04-Bloco B - Acadêmico e administrativo
+B001;LABTEC - LABORATÓRIO DE TECIDOS E MALHAS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B002;LAFET - LABORATÓRIO DE FENÔMENOS DE TRANSPORTE | LABMAM - LABORATÓRIO DE MEIO AMBIENTE;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B003;LABCT - LABORATÓRIO DE CUIDADOS TÊXTEIS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B003.1;APOIO TÉCNICO TEXTIL;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B004;LABENE - LABORATÓRIO DE BENEFICIAMENTO;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B005;LAMAT - LABORATÓRIO MATERIALOGRAFIA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B008;LAB3M - LABORATÓRIO DE MAGNETISMO E MATERIAIS MAGNÉTICOS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B010;LABQI - LABORATÓRIO DE QUÍMICA INORGÂNICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B011;LABQO - LABORATÓRIO DE QUÍMICA ORGÂNICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B012;APOIO TÉCNICO QUÍMICA;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B013;ALMOXARIFADO PRODUTOS QUÍMICOS;Depósito e afins;BNU03-Bloco Acadêmico B - Laboratórios
+B014;ALMOXARIFADO MATERIAIS DE LABORATÓRIO DE QUÍMICA;Depósito e afins;BNU03-Bloco Acadêmico B - Laboratórios
+B015;LASER - LABORATÓRIO DE SISTEMAS EMBARCADOS E ROBÓTICO;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B016;LABIND - LABORATÓRIO DE INFORMÁTICA INDUSTRIAL;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B017;LMP - LABORATÓRIO DE MULTIUSO PARA PROTOTIPAGEM;Oficina;BNU03-Bloco Acadêmico B - Laboratórios
+B018;LEM - LABORATÓRIO DE ENSAIOS MECÂNICOS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B018.1;APOIO TÉCNICO DE MATERIAIS;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B019;LABORATÓRIO DE NANOESTRUTURAS OPTOELETRÔNICAS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B020;LAMAE - LABORATÓRIO DE MICROSCOPIA E ANÁLISE ESTRUTURAL;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B021;LTE - LABORATÓRIO DE ANÁLISE TÉRMICA E ESPECTROSCOPIA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B022;LPM - LABORATÓRIO DE PROCESSAMENTO DE MATERIAIS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B023;LABCID - LABORATÓRIO DE  CIRCUITOS E SISTEMAS DIGITAIS;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B024;LAPRO - LABORATÓRIO DE PROJETOS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B025;CENTROS ACADÊMICOS;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B026;DEPÓSITO GERAL;Depósito e afins;BNU03-Bloco Acadêmico B - Laboratórios
+B103;LABFIS I - LABORATÓRIO DE FÍSICA I;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B104;LABFIS III - LABORATÓRIO DE FÍSICA III;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B105;LABFIS II - LABORATÓRIO DE FÍSICA II;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B106;APOIO TÉCNICA FÍSICA;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B107;MANUTENÇÃO;Depósito e afins;BNU03-Bloco Acadêmico B - Laboratórios
+B110;LABCTI - LABORATÓRIO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B111;LISEQ - LABORATÓRIO DE INVESTIGAÇÃO SOBRE ENSINO DE QUÍMICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B112;LTMA - LABORATÓRIO DE TRANSFORMAÇÕES E MATERIAIS AVANÇADOS;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B113;LABQA - LABORATÓRIO DE QUÍMICA ANALÍTICA | LABQF - LABORATÓRIO DE FÍSICO-QUÍMICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B114;LABEP - LABORATÓRIO DE ELETROTÉCNICA E PNEUMÁTICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B115;LDPT - LÁBORATÓRIO DE DESENVOLVIMENTO DE PRODUTOS TÊXTEIS;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B116;LINTEX - Laboratório Integrado Têxtil;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B117;LAFIF - LABORATÓRIO DE FIBRAS E FIAÇÃO;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B118;LABEX - LABORATÓRIO DE EXPRESSÃO GRÁFICA;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B119;APOIO TÉCNICO ECA;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B120;LISEQ.B - LABORATÓRIO DE INVESTIGAÇÃO SOBRE ENSINO DE QUÍMICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B120.1;AUDIOVISUAL | COMUNICAÇÃO;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B121;TÉCNICO DE TI;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B122;SOMA- SALA DE OLIMPIADA DE MATEMÁTICA;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B123;LABMAC - LABORATÓRIO DE MATEMÁTICA APLICADA E COMPUTACIONAL;(não identificado);BNU03-Bloco Acadêmico B - Laboratórios
+B124;LEMA - LABORATÓRIO DE ENSINO DE MATEMÁTICA;Laboratório;BNU03-Bloco Acadêmico B - Laboratórios
+B125;AUDITÓRIO;Auditório e afins;BNU03-Bloco Acadêmico B - Laboratórios
+VV001;LABINFO 01 - Laboratório de Informática;Laboratório;BNU05-Laboratórios de informática
+VV002;LABINFO 02 - Laboratório de Informática;Laboratório;BNU05-Laboratórios de informática
