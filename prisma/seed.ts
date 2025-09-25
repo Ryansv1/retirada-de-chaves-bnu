@@ -2355,7 +2355,7 @@ async function main() {
           id: uuidv7(),
           providerId: 'credential',
           password: hashedPassword,
-          accountId: 'credential',
+          accountId: uuidv7(),
         },
       },
     },
