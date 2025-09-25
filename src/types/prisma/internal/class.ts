@@ -26,9 +26,9 @@ const config: runtime.GetPrismaClientConfig = {
       "fromEnvVar": null
     },
     "config": {
+      "engineType": "client",
       "moduleFormat": "esm",
-      "runtime": "nodejs",
-      "engineType": "client"
+      "runtime": "nodejs"
     },
     "binaryTargets": [
       {
