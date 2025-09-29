@@ -133,7 +133,7 @@ export default async function Emprestimos(app: FastifyInstance) {
         chaveId: z.uuidv7(),
       }),
       body: z.object({
-        matricula: z.string().min(8).max(11),
+        matricula: z.string().min(7).max(11),
       }),
     },
     preHandler: [AuthenticatedOnly],
@@ -226,7 +226,7 @@ export default async function Emprestimos(app: FastifyInstance) {
         chaveId: z.uuidv7(),
       }),
       body: z.object({
-        matricula: z.string().min(8).max(11),
+        matricula: z.string().min(7).max(11),
       }),
     },
     preHandler: [AuthenticatedOnly],
