@@ -1693,12 +1693,59 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
 ];
-const armarios: Pick<Armario, 'codigo'>[] = Array.from(
+const armarios3floor: Pick<Armario, 'codigo'>[] = Array.from(
   { length: 48 },
   (_, i) => ({
     codigo: `B3.${(i + 1).toString().padStart(3, '0')}`,
   }),
 );
+
+const armarios1floor: Pick<Armario, 'codigo'>[] = Array.from(
+  {
+    length: 58,
+  },
+  (_, i) => ({
+    codigo: `B1.${(i + 1).toString().padStart(3, '0')}`,
+  }),
+);
+
+const autorizadosSoma = [
+  '21200707',
+  '21200708',
+  '23206480',
+  '20206819',
+  '202400292',
+  '23101828',
+  '21200709',
+  '22250435',
+  '23206946',
+  '23250295',
+  '21200711',
+  '23101829',
+  '24103301',
+  '24103302',
+  '22102095',
+  '23206482',
+  '21100895',
+  '20206827',
+  '23150518',
+  '22150084',
+  '22201220',
+  '24103878',
+  '22250438',
+  '24102180',
+  '21250183',
+  '22102108',
+  '24103867',
+  '23206479',
+  '23201080',
+  '23250297',
+  '21200719',
+  '22201927',
+  '22250437',
+  '24250129',
+  '23103495',
+];
 
 // Criei pq alguns usuários eu crio o ID aqui mesmo. Outros não.
 type CustomUsuarioType = Array<{
@@ -3609,7 +3656,29 @@ async function main() {
   });
   console.log('Ambientes Criados.');
   await database.$transaction(async (tx) => {
-    for (const armario of armarios) {
+    for (const armario of armarios3floor) {
+      await tx.armario.upsert({
+        where: {
+          codigo: armario.codigo,
+        },
+        update: {},
+        create: {
+          id: uuidv7(),
+          codigo: armario.codigo,
+          andar: `${armario.codigo.charAt(1)}° Andar`,
+          localizacao: 'SNO',
+          bloco: `Bloco ${armario.codigo.charAt(0)}`,
+          Chave: {
+            create: {
+              id: uuidv7(),
+              tipo: 'ARMARIO',
+            },
+          },
+        },
+      });
+    }
+
+    for (const armario of armarios1floor) {
       await tx.armario.upsert({
         where: {
           codigo: armario.codigo,
@@ -3670,6 +3739,36 @@ async function main() {
     },
   });
   console.log('ADMIN criado.');
+
+  await database.$transaction(async (tx) => {
+    const notFound = [];
+    for (const autorizado of autorizadosSoma) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+      const soma = await tx.ambiente.findFirst({
+        where: { codigo: 'B122' },
+        include: { Chave: true },
+      });
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!soma || !soma.Chave) {
+        throw new Error('Erro, Ambiente SOMA não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: soma.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    console.log(notFound);
+  });
 }
 
 await main()

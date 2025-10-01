@@ -6,6 +6,7 @@ import { HTTPError } from '../utils/http-error.js';
 import { v7 as uuidv7 } from 'uuid';
 import { DateTime } from 'luxon';
 import AuthenticatedOnly from '../preHandlers/auth.prehandler.js';
+import { isAuthorized } from '../utils/user-permissions.js';
 
 export default async function Emprestimos(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().route({
@@ -205,6 +206,8 @@ export default async function Emprestimos(app: FastifyInstance) {
               Emprestimo: {
                 where: { status: 'PENDENTE' },
               },
+              Ambiente: true,
+              Armario: true,
             },
           });
 
@@ -215,6 +218,20 @@ export default async function Emprestimos(app: FastifyInstance) {
           // 3. A verificação agora é feita com os dados que já buscamos dentro da transação anterior de busca de chave.
           if (chave.Emprestimo.length > 0) {
             throw new HTTPError(409, 'Chave já emprestada.');
+          }
+
+          if (chave.tipo === 'AMBIENTE') {
+            const usuarioAutorizado = await isAuthorized(
+              requisitante.id,
+              chave.Ambiente!.codigo,
+            );
+
+            if (!usuarioAutorizado) {
+              throw new HTTPError(
+                403,
+                'Usuário não autorizado a retirar essa chave.',
+              );
+            }
           }
 
           // 4. Se todas as verificações passaram, criamos o empréstimo usando o cliente da transação (tx).
