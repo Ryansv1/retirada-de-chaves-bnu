@@ -84,6 +84,16 @@ export default async function Emprestimos(app: FastifyInstance) {
               }),
             }),
           },
+          include: {
+            Chave: {
+              select: {
+                id: true,
+                tipo: true,
+                Ambiente: true,
+                Armario: true,
+              },
+            },
+          },
         });
         return reply.status(200).send(emprestimos);
       } catch (error) {
@@ -110,9 +120,28 @@ export default async function Emprestimos(app: FastifyInstance) {
             id: emprestimoId,
           },
           include: {
-            Chave: true,
-            OperadorDevolucao: true,
-            OperadorSolicitacao: true,
+            Chave: {
+              include: {
+                Ambiente: true,
+                Armario: true,
+              },
+            },
+            OperadorDevolucao: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                role: true,
+              },
+            },
+            OperadorSolicitacao: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                role: true,
+              },
+            },
             UsuarioDevolucao: true,
             UsuarioSolicitante: true,
           },
@@ -314,11 +343,21 @@ export default async function Emprestimos(app: FastifyInstance) {
         .object({
           chaveId: z.uuidv7(),
           justificativa: z.string().min(10, 'Justificativa é obrigatória'),
-          dataRetirada: z.iso.datetime(),
+          dataRetirada: z.iso.datetime({
+            local: true,
+            precision: 3,
+            offset: true,
+          }),
 
           status: z.enum(['PENDENTE', 'DEVOLVIDO']),
 
-          dataRetorno: z.iso.datetime().optional(),
+          dataRetorno: z.iso
+            .datetime({
+              local: true,
+              precision: 3,
+              offset: true,
+            })
+            .optional(),
         })
         .refine(
           (data) => {
@@ -392,11 +431,14 @@ export default async function Emprestimos(app: FastifyInstance) {
                 usuarioDevolucaoId:
                   status === 'DEVOLVIDO' ? 'LANCAMENTO_ADMINISTRATIVO' : null,
                 tipo: 'ADMINISTRATIVO',
-                dataRetirada: dataRetirada,
+                dataRetirada: DateTime.fromISO(dataRetirada).toJSDate(),
                 operadorDevolucaoId: status === 'DEVOLVIDO' ? operadorId : null,
                 operadorSolicitacaoId: operadorId,
                 status: status,
-                dataRetorno: status === 'DEVOLVIDO' ? dataRetorno! : null,
+                dataRetorno:
+                  status === 'DEVOLVIDO'
+                    ? DateTime.fromISO(dataRetorno!).toJSDate()
+                    : null,
                 justificativa: justificativa,
               },
             });
