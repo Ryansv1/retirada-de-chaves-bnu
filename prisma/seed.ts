@@ -14,20 +14,6 @@ const ambientes: Pick<
 >[] = [
   {
     nome: 'Sala de aula',
-    codigo: 'B009',
-    localizacao: 'SNO',
-    capacidade: 40,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B016',
-    localizacao: 'SNO',
-    capacidade: 40,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
     codigo: 'B101',
     localizacao: 'SNO',
     capacidade: 68,
@@ -42,179 +28,12 @@ const ambientes: Pick<
   },
   {
     nome: 'Sala de aula',
-    codigo: 'B103',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B104',
-    localizacao: 'SNO',
-    capacidade: 40,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B105',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B106',
-    localizacao: 'SNO',
-    capacidade: 25,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B110',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B111',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B113',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B114',
-    localizacao: 'SNO',
-    capacidade: 55,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B108',
-    localizacao: 'SNO',
-    capacidade: 31,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B107',
-    localizacao: 'SNO',
-    capacidade: 49,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
     codigo: 'B112',
     localizacao: 'SNO',
     capacidade: 45,
     tipo: 'SALA_DE_AULA',
   },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B207',
-    localizacao: 'SNO',
-    capacidade: 37,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B208',
-    localizacao: 'SNO',
-    capacidade: 37,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'Sala de aula',
-    codigo: 'B302',
-    localizacao: 'SNO',
-    capacidade: 57,
-    tipo: 'SALA_DE_AULA',
-  },
-  {
-    nome: 'LABCOP - Laboratório de Controle e Processos',
-    codigo: 'B021',
-    localizacao: 'SNO',
-    capacidade: 35,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABCID - Laboratório de Circuitos e Sistemas Digitais',
-    codigo: 'B020',
-    localizacao: 'SNO',
-    capacidade: 33,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LEMA - Laboratório Ensino de Matemática',
-    codigo: 'BS02',
-    localizacao: 'SNO',
-    capacidade: 50,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABFIS - Laboratório de Física',
-    codigo: 'BS01',
-    localizacao: 'SNO',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'Sala de atendimento',
-    codigo: 'B005',
-    localizacao: 'SNO',
-    capacidade: 5,
-    tipo: 'SALA_ADMINISTRATIVA',
-  },
-  {
-    nome: 'LABINFO I - Laboratórios de Informática',
-    codigo: 'B201',
-    localizacao: 'SNO',
-    capacidade: 25,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABINFO II - Laboratórios de Informática',
-    codigo: 'B202',
-    localizacao: 'SNO',
-    capacidade: 25,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABEX - Laboratório de Expressão Gráfica',
-    codigo: 'B301',
-    localizacao: 'SNO',
-    capacidade: 25,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LDPT - Laboratório de Desenvolvimento de Produtos Têxteis',
-    codigo: 'B004',
-    localizacao: 'SNO',
-    capacidade: 25,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LabM3 - Laboratório de Magnetismo e Materiais Magnéticos',
-    codigo: 'A029',
-    localizacao: 'SNO',
-    capacidade: 2,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABMAC - Laboratório de Matemática Aplicada e Computacional',
-    codigo: 'B204',
-    localizacao: 'SNO',
-    capacidade: 5,
-    tipo: 'LABORATORIO',
-  },
+
   {
     nome: 'LABTEC - Laboratório de Tecidos e Malhas',
     codigo: 'B001',
@@ -272,20 +91,6 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LABIND - Laboratório de Informática Industrial',
-    codigo: 'B016',
-    localizacao: 'VELHA',
-    capacidade: 25,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LMP - Laboratório de Multiuso para Prototipagem',
-    codigo: 'B017',
-    localizacao: 'VELHA',
-    capacidade: 10,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LEM - Laboratório de Ensaios Mecânicos',
     codigo: 'B018',
     localizacao: 'VELHA',
@@ -297,13 +102,6 @@ const ambientes: Pick<
     codigo: 'B019',
     localizacao: 'VELHA',
     capacidade: 10,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LAMAE - Laboratório de Microscopia e Análise Estrutural',
-    codigo: 'B020',
-    localizacao: 'VELHA',
-    capacidade: 2,
     tipo: 'LABORATORIO',
   },
   {
@@ -342,13 +140,6 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LABQA - Laboratório de Química Analítica',
-    codigo: 'B113',
-    localizacao: 'VELHA',
-    capacidade: 20,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LABEP - Laboratório de Eletrotécnica e Pneumática',
     codigo: 'B114',
     localizacao: 'VELHA',
@@ -360,13 +151,6 @@ const ambientes: Pick<
     codigo: 'B116',
     localizacao: 'VELHA',
     capacidade: 10,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LAFIF - Laboratório de Fibras e Fiação',
-    codigo: 'B117',
-    localizacao: 'VELHA',
-    capacidade: 25,
     tipo: 'LABORATORIO',
   },
   {
@@ -1014,14 +798,14 @@ const ambientes: Pick<
     tipo: 'SALA_ADMINISTRATIVA',
   },
   {
-    nome: 'LABINFO II - LABORATÓRIO DE INFORMÁTICA',
+    nome: 'LABINFO I - LABORATÓRIO DE INFORMÁTICA',
     codigo: 'B.201',
     localizacao: 'SNO',
     capacidade: 30,
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LABINFO III - LABORATÓRIO DE INFORMÁTICA',
+    nome: 'LABINFO II- LABORATÓRIO DE INFORMÁTICA',
     codigo: 'B.202',
     localizacao: 'SNO',
     capacidade: 30,
@@ -1350,22 +1134,8 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LABTEC - LABORATÓRIO DE TECIDOS E MALHAS',
-    codigo: 'B001',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LAFET - LABORATÓRIO DE FENÔMENOS DE TRANSPORTE | LABMAM - LABORATÓRIO DE MEIO AMBIENTE',
     codigo: 'B002',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABCT - LABORATÓRIO DE CUIDADOS TÊXTEIS',
-    codigo: 'B003',
     localizacao: 'VELHA',
     capacidade: 30,
     tipo: 'LABORATORIO',
@@ -1378,36 +1148,8 @@ const ambientes: Pick<
     tipo: 'SALA_ADMINISTRATIVA',
   },
   {
-    nome: 'LABENE - LABORATÓRIO DE BENEFICIAMENTO',
-    codigo: 'B004',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LAMAT - LABORATÓRIO MATERIALOGRAFIA',
-    codigo: 'B005',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LAB3M - LABORATÓRIO DE MAGNETISMO E MATERIAIS MAGNÉTICOS',
     codigo: 'B008',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABQI - LABORATÓRIO DE QUÍMICA INORGÂNICA',
-    codigo: 'B010',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABQO - LABORATÓRIO DE QUÍMICA ORGÂNICA',
-    codigo: 'B011',
     localizacao: 'VELHA',
     capacidade: 30,
     tipo: 'LABORATORIO',
@@ -1434,13 +1176,6 @@ const ambientes: Pick<
     tipo: 'SALA_ADMINISTRATIVA',
   },
   {
-    nome: 'LASER - LABORATÓRIO DE SISTEMAS EMBARCADOS E ROBÓTICO',
-    codigo: 'B015',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LABIND - LABORATÓRIO DE INFORMÁTICA INDUSTRIAL',
     codigo: 'B016',
     localizacao: 'VELHA',
@@ -1455,13 +1190,6 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LEM - LABORATÓRIO DE ENSAIOS MECÂNICOS',
-    codigo: 'B018',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'APOIO TÉCNICO DE MATERIAIS',
     codigo: 'B018.1',
     localizacao: 'VELHA',
@@ -1469,29 +1197,8 @@ const ambientes: Pick<
     tipo: 'SALA_ADMINISTRATIVA',
   },
   {
-    nome: 'LABORATÓRIO DE NANOESTRUTURAS OPTOELETRÔNICAS',
-    codigo: 'B019',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LAMAE - LABORATÓRIO DE MICROSCOPIA E ANÁLISE ESTRUTURAL',
     codigo: 'B020',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LTE - LABORATÓRIO DE ANÁLISE TÉRMICA E ESPECTROSCOPIA',
-    codigo: 'B021',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LPM - LABORATÓRIO DE PROCESSAMENTO DE MATERIAIS',
-    codigo: 'B022',
     localizacao: 'VELHA',
     capacidade: 30,
     tipo: 'LABORATORIO',
@@ -1574,22 +1281,8 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LTMA - LABORATÓRIO DE TRANSFORMAÇÕES E MATERIAIS AVANÇADOS',
-    codigo: 'B112',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LABQA - LABORATÓRIO DE QUÍMICA ANALÍTICA | LABQF - LABORATÓRIO DE FÍSICO-QUÍMICA',
     codigo: 'B113',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABEP - LABORATÓRIO DE ELETROTÉCNICA E PNEUMÁTICA',
-    codigo: 'B114',
     localizacao: 'VELHA',
     capacidade: 30,
     tipo: 'LABORATORIO',
@@ -1602,32 +1295,11 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
   {
-    nome: 'LINTEX - Laboratório Integrado Têxtil',
-    codigo: 'B116',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
     nome: 'LAFIF - LABORATÓRIO DE FIBRAS E FIAÇÃO',
     codigo: 'B117',
     localizacao: 'VELHA',
     capacidade: 30,
     tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'LABEX - LABORATÓRIO DE EXPRESSÃO GRÁFICA',
-    codigo: 'B118',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'LABORATORIO',
-  },
-  {
-    nome: 'APOIO TÉCNICO ECA',
-    codigo: 'B119',
-    localizacao: 'VELHA',
-    capacidade: 30,
-    tipo: 'SALA_ADMINISTRATIVA',
   },
   {
     nome: 'LISEQ.B - LABORATÓRIO DE INVESTIGAÇÃO SOBRE ENSINO DE QUÍMICA',
@@ -3629,9 +3301,462 @@ const usuarios: CustomUsuarioType = [
   { nome: 'Paulo Ricardo', matricula: '2025242' },
 ];
 
+const autorizadosInfoII = [
+  '23201841',
+  '21203235',
+  '2280167',
+  '20103511',
+  '23150985',
+];
+
+const autorizadosInfoI = [
+  '18150370',
+  '3125441',
+  '23201841',
+  '23101812',
+  '16205445',
+  '2280167',
+  '20103511',
+  '23150985',
+];
+
+const autorizadosLEMA = [
+  '202400292',
+  '23150529',
+  '23102338',
+  '2312243',
+  '21200719',
+];
+
+const autorizadosLABEX = [
+  '18150368',
+  '19201517',
+  '20150522',
+  '20250264',
+  '23103524',
+  '21150216',
+  '18104181',
+  '19102253',
+  '23150992',
+  '22250497',
+  '23150993',
+  '24150271',
+  '23102323',
+  '20103519',
+  '15104149',
+  '23101810',
+  '19250599',
+  '24205969',
+  '23201841',
+  '20102143',
+  '24202776',
+  '20103936',
+  '23250495',
+  '23101797',
+  '24205975',
+  '17102431',
+  '18204481',
+  '19204154',
+  '22251199',
+  '22250492',
+  '22250493',
+  '18102235',
+  '21104811',
+  '17202052',
+  '2280167',
+  '25202141',
+  '23203147',
+  '17104221',
+  '21106481',
+  '25207329',
+  '25202124',
+  '19201541',
+  '23250504',
+  '23101791',
+  '19204155',
+  '24103340',
+  '24102131',
+  '25202874',
+  '20102165',
+  '21203247',
+];
+
+const autorizadosLABCID = [
+  '18150368',
+  '19201517',
+  '20150522',
+  '16206751',
+  '20250264',
+  '20150525',
+  '21103326',
+  '19204416',
+  '18104181',
+  '23103525',
+  '15102922',
+  '19102253',
+  '20150523',
+  '20204055',
+  '19102255',
+  '20102133',
+  '20205246',
+  '20203521',
+  '16207178',
+  '20150521',
+  '23104692',
+  '24250138',
+  '20201416',
+  '18104170',
+  '19102497',
+  '20102134',
+  '20102418',
+  '20102415',
+  '20102135',
+  '19102505',
+  '19150429',
+  '18202876',
+  '20102137',
+  '19250599',
+  '17104222',
+  '19204149',
+  '22201946',
+  '20207441',
+  '19102496',
+  '20102139',
+  '20202804',
+  '18207810',
+  '20102140',
+  '20103505',
+  '18205199',
+  '21104805',
+  '19204153',
+  '18105530',
+  '20103936',
+  '15202027',
+  '21200740',
+  '18201505',
+  '19102268',
+  '18204486',
+  '20102148',
+  '19150435',
+  '17201860',
+  '19102271',
+  '19204154',
+  '18102228',
+  '21200741',
+  '20150519',
+  '16205213',
+  '20201428',
+  '18104174',
+  '19202934',
+  '20150520',
+  '22250493',
+  '20103509',
+  '20102151',
+  '17203802',
+  '19102502',
+  '19104070',
+  '17102437',
+  '17201866',
+  '20102152',
+  '18207667',
+  '19202935',
+  '15102949',
+  '20150510',
+  '2280167',
+  '19105766',
+  '20150514',
+  '18150365',
+  '20103511',
+  '18102240',
+  '16202949',
+  '20250261',
+  '18207445',
+  '19103712',
+  '18102241',
+  '20102156',
+  '20202057',
+  '15206704',
+  '19201541',
+  '19102282',
+  '21103355',
+  '19102508',
+  '17250439',
+  '19204155',
+  '20204052',
+  '20250257',
+  '18201523',
+  '19102498',
+  '20201435',
+  '19102284',
+  '19203627',
+  '18104179',
+  '18207114',
+  '20102163',
+  '16202097',
+  '19103713',
+  '16204217',
+  '20102165',
+  '21203246',
+  '16207427',
+];
+
+const autorizadosLAB3M = [
+  '21103299',
+  '21100917',
+  '22201928',
+  '23103518',
+  '22104559',
+  '22201937',
+  '18103491',
+  '23101796',
+  '21100931',
+  '18205523',
+];
+
+const autorizadosLABCOP = [
+  '18150368',
+  '16202940',
+  '15102917',
+  '18150370',
+  '20150522',
+  '20250264',
+  '16102609',
+  '21201099',
+  '20150525',
+  '17201783',
+  '21103326',
+  '18102215',
+  '19204416',
+  '18102216',
+  '17201844',
+  '18205820',
+  '14204677',
+  '15102922',
+
+  '21203216',
+  '17103597',
+  '21203218',
+  '19102253',
+  '18201493',
+  '20150523',
+  '18102219',
+  '21100933',
+  '20204055',
+  '19102255',
+
+  '16204212',
+  '22250497',
+  '17201846',
+  '20103935',
+  '17104215',
+  '20102133',
+  '20205246',
+  '20201414',
+  '20203521',
+  '16207178',
+  '20150521',
+
+  '23104692',
+  '20201416',
+  '20203523',
+  '18104170',
+  '19102497',
+  '21150247',
+  '19104908',
+  '20102134',
+  '17207203',
+  '20102418',
+
+  '15206578',
+  '15104149',
+  '20102415',
+  '16202069',
+  '21103332',
+  '20102135',
+  '17104890',
+  '21104792',
+  '19207206',
+  '18103495',
+  '20205798',
+  '21201429',
+
+  '19102505',
+  '18202876',
+  '20102137',
+  '19250599',
+  '17104222',
+  '19207208',
+  '19204149',
+  '19103706',
+  '19102495',
+  '18250365',
+
+  '17203806',
+  '20206883',
+  '18202866',
+  '19102507',
+  '19102496',
+  '20102139',
+  '16206039',
+  '20202804',
+  '20206885',
+  '20102417',
+  '17205673',
+  '18207810',
+  '20102140',
+  '20103505',
+  '18105434',
+  '18205199',
+  '17250437',
+  '17104217',
+  '17102427',
+  '21104805',
+  '20102143',
+  '19204153',
+  '20103936',
+  '19250596',
+  '15250229',
+  '21103343',
+  '22102095',
+  '18201505',
+  '16204204',
+  '20206886',
+  '17150420',
+  '20102146',
+  '17201857',
+  '17203001',
+  '202300045',
+  '19102267',
+  '17102431',
+  '19150434',
+  '18202868',
+  '18102227',
+  '19102268',
+  '18204486',
+  '20102148',
+  '18206477',
+  '20205799',
+
+  '19207561',
+  '16104688',
+  '19150435',
+  '19102270',
+  '20150518',
+  '19102271',
+  '16205216',
+  '18150364',
+  '22102096',
+  '19204154',
+  '20103939',
+  '20150524',
+  '18102228',
+  '20103508',
+  '20150519',
+  '18104176',
+  '17102435',
+  '19150436',
+  '20250262',
+  '16205213',
+  '19102274',
+  '20201428',
+  '15202033',
+  '17104888',
+  '18102231',
+  '21203234',
+  '22102971',
+  '18250366',
+  '21203235',
+  '20250263',
+  '20150520',
+  '22250492',
+  '20207434',
+  '20103509',
+  '20102151',
+  '20150517',
+  '18102235',
+  '21103349',
+  '17203802',
+  '19104070',
+  '18104976',
+  '17102437',
+  '16205215',
+  '17201866',
+  '16204210',
+  '20102152',
+  '15206176',
+  '19202935',
+  '15102949',
+  '21104811',
+  '20150510',
+  '17202052',
+  '2280167',
+  '16104692',
+  '16250653',
+  '19105766',
+  '19104069',
+  '19150424',
+  '15205897',
+  '20150514',
+  '17204370',
+  '20204619',
+  '17203805',
+  '18150321',
+  '17205670',
+  '20103511',
+  '18102240',
+  '16202949',
+  '18203067',
+  '23250496',
+  '22102108',
+  '18207445',
+  '19203628',
+  '23206991',
+  '21150251',
+  '19103712',
+  '18102241',
+  '21101376',
+  '17104221',
+  '20202057',
+  '16103656',
+  '17104219',
+  '18105436',
+  '15206704',
+  '17102445',
+  '18202871',
+  '19201541',
+  '17102446',
+  '21101375',
+  '19102282',
+  '17104889',
+  '18150363',
+  '18102243',
+  '19102508',
+  '17250439',
+  '22102113',
+  '19204155',
+  '20204052',
+  '20250257',
+  '18201523',
+  '19102498',
+  '20201435',
+  '20104623',
+  '19102284',
+  '18207114',
+  '20102163',
+  '16102639',
+  '16202097',
+  '19103713',
+  '19103714',
+  '20102165',
+  '21203246',
+  '16207427',
+  '16202954',
+];
 async function main() {
   console.debug('Iniciando seed.');
   await database.$transaction(async (tx) => {
+    await tx.ambiente.deleteMany();
+
     for (const ambiente of ambientes) {
       await tx.ambiente.upsert({
         where: {
@@ -3742,6 +3867,7 @@ async function main() {
 
   await database.$transaction(async (tx) => {
     const notFound = [];
+
     for (const autorizado of autorizadosSoma) {
       const user = await tx.usuarios.findUnique({
         where: { matricula: autorizado },
@@ -3767,6 +3893,196 @@ async function main() {
         },
       });
     }
+    for (const autorizado of autorizadosInfoII) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const labinfoII = await tx.ambiente.findFirst({
+        where: { codigo: 'B.202' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!labinfoII || !labinfoII.Chave) {
+        throw new Error('Erro, Ambiente LABINFO 2 não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: labinfoII.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosInfoI) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const labInfoI = await tx.ambiente.findFirst({
+        where: { codigo: 'B.201' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!labInfoI || !labInfoI.Chave) {
+        throw new Error('Erro, Ambiente LABINFO 1 não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: labInfoI.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosLEMA) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const lema = await tx.ambiente.findFirst({
+        where: { codigo: 'B.201' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!lema || !lema.Chave) {
+        throw new Error('Erro, Ambiente LEMA não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: lema.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosLABEX) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const labex = await tx.ambiente.findFirst({
+        where: { codigo: 'B.301' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!labex || !labex.Chave) {
+        throw new Error('Erro, Ambiente LABEX não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: labex.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosLABCID) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const labcid = await tx.ambiente.findFirst({
+        where: { codigo: 'B.020' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!labcid || !labcid.Chave) {
+        throw new Error('Erro, Ambiente LABCID não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: labcid.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosLAB3M) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const lab3m = await tx.ambiente.findFirst({
+        where: { codigo: 'A.029' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!lab3m || !lab3m.Chave) {
+        throw new Error('Erro, Ambiente LAB3M não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: lab3m.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+    for (const autorizado of autorizadosLABCOP) {
+      const user = await tx.usuarios.findUnique({
+        where: { matricula: autorizado },
+      });
+
+      const labcop = await tx.ambiente.findFirst({
+        where: { codigo: 'B.021' },
+        include: { Chave: true },
+      });
+
+      if (!user) {
+        notFound.push(autorizado);
+        continue;
+      }
+
+      if (!labcop || !labcop.Chave) {
+        throw new Error('Erro, Ambiente LABCOP não encontrado');
+      }
+
+      await tx.chaves_Usuarios.create({
+        data: {
+          id: uuidv7(),
+          chaveId: labcop.Chave.id,
+          usuarioId: user.id,
+        },
+      });
+    }
+
     console.log(notFound);
   });
 }
