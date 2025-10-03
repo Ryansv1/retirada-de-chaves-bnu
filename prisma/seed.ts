@@ -1368,14 +1368,12 @@ const ambientes: Pick<
 
 interface ArmarioAtualizado {
   codigo: string;
-  codigoNovo: string;
 }
 
 const armarios3floor: ArmarioAtualizado[] = Array.from(
   { length: 56 },
   (_, i) => ({
-    codigo: `B3.${(i + 1).toString().padStart(3, '0')}`,
-    codigoNovo: `B3.${i + 1}`,
+    codigo: `B3.${i + 1}`,
   }),
 );
 
@@ -1384,8 +1382,7 @@ const armarios1floor: ArmarioAtualizado[] = Array.from(
     length: 58,
   },
   (_, i) => ({
-    codigo: `B1.${(i + 1).toString().padStart(3, '0')}`,
-    codigoNovo: `B1.${i + 1}`,
+    codigo: `B1.${i + 1}`,
   }),
 );
 
@@ -1435,6 +1432,10 @@ type CustomUsuarioType = Array<{
 }>;
 
 const usuarios: CustomUsuarioType = [
+  { nome: 'JULIA MIRANDA BRESSANE', matricula: '2181942' },
+  { nome: 'ALINE TRIERWEILER DE SOUSA', matricula: '2773566' },
+  { nome: 'CLÁUDIO DE MORAIS', matricula: '3125441' },
+  { nome: 'PRISCILA MARGARETE BONA', matricula: '3041895' },
   { nome: 'Helena Lucianer Pereira', matricula: '20252000001' },
   { nome: 'Isabel Rodrigues da Conceição', matricula: '20252000002' },
   { nome: 'Livia Josefina Gomes Sanchez', matricula: '20252000003' },
@@ -3792,9 +3793,7 @@ async function main() {
         where: {
           codigo: armario.codigo,
         },
-        update: {
-          codigo: armario.codigoNovo,
-        },
+        update: {},
         create: {
           id: uuidv7(),
           codigo: armario.codigo,
@@ -3816,9 +3815,7 @@ async function main() {
         where: {
           codigo: armario.codigo,
         },
-        update: {
-          codigo: armario.codigoNovo,
-        },
+        update: {},
         create: {
           id: uuidv7(),
           codigo: armario.codigo,
