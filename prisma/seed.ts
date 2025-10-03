@@ -1365,19 +1365,27 @@ const ambientes: Pick<
     tipo: 'LABORATORIO',
   },
 ];
-const armarios3floor: Pick<Armario, 'codigo'>[] = Array.from(
-  { length: 48 },
+
+interface ArmarioAtualizado {
+  codigo: string;
+  codigoNovo: string;
+}
+
+const armarios3floor: ArmarioAtualizado[] = Array.from(
+  { length: 56 },
   (_, i) => ({
     codigo: `B3.${(i + 1).toString().padStart(3, '0')}`,
+    codigoNovo: `B3.${i + 1}`,
   }),
 );
 
-const armarios1floor: Pick<Armario, 'codigo'>[] = Array.from(
+const armarios1floor: ArmarioAtualizado[] = Array.from(
   {
     length: 58,
   },
   (_, i) => ({
     codigo: `B1.${(i + 1).toString().padStart(3, '0')}`,
+    codigoNovo: `B1.${i + 1}`,
   }),
 );
 
@@ -3755,8 +3763,6 @@ const autorizadosLABCOP = [
 async function main() {
   console.debug('Iniciando seed.');
   await database.$transaction(async (tx) => {
-    await tx.ambiente.deleteMany();
-
     for (const ambiente of ambientes) {
       await tx.ambiente.upsert({
         where: {
@@ -3786,7 +3792,9 @@ async function main() {
         where: {
           codigo: armario.codigo,
         },
-        update: {},
+        update: {
+          codigo: armario.codigoNovo,
+        },
         create: {
           id: uuidv7(),
           codigo: armario.codigo,
@@ -3808,7 +3816,9 @@ async function main() {
         where: {
           codigo: armario.codigo,
         },
-        update: {},
+        update: {
+          codigo: armario.codigoNovo,
+        },
         create: {
           id: uuidv7(),
           codigo: armario.codigo,
@@ -3866,7 +3876,7 @@ async function main() {
   console.log('ADMIN criado.');
 
   await database.$transaction(async (tx) => {
-    const notFound = [];
+    const notFound = [] as string[];
 
     for (const autorizado of autorizadosSoma) {
       const user = await tx.usuarios.findUnique({

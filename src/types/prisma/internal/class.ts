@@ -22,23 +22,23 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/home/ryan/Documents/retiradaDeChaves/api/src/types/prisma",
+      "value": "C:\\Users\\ryans\\Documents\\ufsc\\retirada-de-chaves-bnu\\src\\types\\prisma",
       "fromEnvVar": null
     },
     "config": {
       "moduleFormat": "esm",
-      "engineType": "client",
-      "runtime": "nodejs"
+      "runtime": "nodejs",
+      "engineType": "client"
     },
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/ryan/Documents/retiradaDeChaves/api/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\ryans\\Documents\\ufsc\\retirada-de-chaves-bnu\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../../prisma",
@@ -48,7 +48,6 @@ const config: runtime.GetPrismaClientConfig = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
